@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<div class="sr-only"><a href="#content">Skip to content</a></div>
+
+<div class="container" id="content">
+    <div class="pull-right" style="padding: 0.5em">
+        <a href="http://www.no2bio.org">
+            <img src="img/logo.png" alt="no2bio logo">
+        </a>
+    </div>
+    <h1>בבחירות הקרובות, מבטלים את המאגר הביומטרי</h1>
+    <p>
+        הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר
+    </p>
+</div>
+<div class="container-fluid">
+    <h2 class="centered">המלצת הצבעה</h2>
+    <ul class="party-list">
+        {% for party in site.data.parties %}
+        <li class="{{party.recommendation}}">
+            <h3>
+                <a href="parties/{{party.alias}}.html">{{party.name}}</a>
+            </h3>
+            <div class="tag">
+                {% case party.recommendation %} 
+                    {% when "yes" %} 
+                        <div class="stamp stamp-yes">אפשר להצביע</div>
+                    {% when "no" %}
+                        <div class="stamp stamp-no">לא להצביע</div>
+                    {% when "neutral" %}
+                        <div class="stamp stamp-neutral">מתנדנד</div>
+                    {% when "pending" %}
+                        <div class="stamp stamp-pending">ממתינים לתשובה</div>
+                    {% else %} ERROR: unknown case {{party.recommendation}}
+                {% endcase %}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

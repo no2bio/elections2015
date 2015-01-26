@@ -1,0 +1,193 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+
+
+// Our variables
+$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+// @mixin media-query($device) {
+//     @media screen and (max-width: $device) {
+//         @content;
+//     }
+// }
+
+
+
+// // Import partials from `sass_dir` (defaults to `_sass`)
+// @import
+//         "base",
+//         "layout",
+//         "syntax-highlighting"
+// ;
+
+body {
+  direction: rtl;
+  background-color: #f3e14c;
+}
+
+$color-yes: #22fe80;
+$color-no:  #F44;
+$color-pending: #CCC;
+$color-neutral: #AAF;
+
+.yes {
+  background-color: $color-yes;
+}
+
+.no {
+  background-color: $color-no;
+}
+
+.pending {
+  background-color: $color-pending;
+}
+
+.neutral {
+  background-color: $color-neutral;
+}
+
+.centered {
+  text-align: center;
+}
+
+footer {
+  margin-top: 3em;
+  border-top: 1px black solid;
+  padding-top: 1em;
+  font-size: 0.7em;
+  text-align: center;
+}
+
+ul.party-list {
+  margin: 0;
+  text-align: center;
+}
+
+$party-li-width:400px;
+$tag-width: 200px;
+
+ul.party-list li {
+  position: relative;
+  display: inline-block;
+  width: $party-li-width;
+  text-align: right;
+  border-radius: 1em;
+  padding: 0.5em;
+  /* box-shadow: 0 4px 4px rgba(0,0,0,.5); */
+  margin: 1em;
+
+}
+
+ul.party-list li .tag {
+  position: absolute;
+  top:0;
+  left: 0;
+  bottom: 0;
+  width: $tag-width;
+  border-radius: 1em;
+  text-align: left;
+  padding: 0.5em;
+}
+
+.stamp {
+  font-size: 1.5em;
+  border-radius: 10px;
+  border: 3px solid black;
+  padding: 5px;
+  position: relative;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  background-color: white;
+  top: 0.5em;
+  left: -0.5em;
+  text-align: center;
+  font-weight: bold;
+  -webkit-transform: rotate(-25deg); /* Chrome, Safari, Opera */
+      -ms-transform: rotate(-25deg); /* IE 9 */
+          transform: rotate(-25deg);
+  z-index: 1000;
+}
+
+.stamp-yes{
+  border-color: darken($color-yes, 30%);
+  color: darken($color-yes, 30%);
+  background-color: mix($color-yes, white, 40%);
+}
+.stamp-no{
+  border-color: darken($color-no, 30%);
+  color: darken($color-no, 30%);
+  background-color: mix($color-no, white, 40%);
+}
+.stamp-pending{
+  border-color: darken($color-pending, 30%);
+  color: darken($color-pending, 30%);
+  background-color: mix($color-pending, white, 40%);
+}
+.stamp-neutral{
+  border-color: darken($color-neutral, 20%);
+  color: darken($color-neutral, 20%);
+  background-color: mix($color-neutral, white, 40%);
+}
+
+ul.party-list li a {
+  color: black;
+}
+
+ul.mk-list {
+  padding: 0;
+
+  li {
+    position: relative;
+    margin: 1em;
+    padding: 0.5em;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3) inset;
+    border-radius: 5px;
+    
+    .contacts {
+      float: left;
+    }
+  }
+}
+
+ul.mk-list .li-yes {
+  background-color: mix($color-yes, white, 50%);
+}
+ul.mk-list .li-no {
+  background-color: mix($color-no, white, 50%);
+}
+ul.mk-list .li-pending {
+  background-color: mix($color-pending, white, 50%);
+}
+ul.mk-list .li-neutral {
+  background-color: mix($color-neutral, white, 50%);
+}

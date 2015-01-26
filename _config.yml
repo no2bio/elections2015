@@ -1,0 +1,13 @@
+# Site settings
+title: בחירות 2015
+email: info@no2bio.org
+description: "עמדת המפלגות ביחס למאגר הביומטרי, בחירות 2015"
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://elections2015.no2bio.org" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+
+collections:
+  parties:
+    output: true
