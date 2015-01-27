@@ -45,16 +45,15 @@
       </h1>
         
       <h2 class="centered">
-      המלצה: 
         {% case party.recommendation %} 
         {% when "yes" %}
-          אפשר להצביע
+          מבטיחים להגן על פרטיותך
         {% when "no" %}
-          לא להצביע
+          מבטיחים לפגוע בפרטיותך
         {% when "neutral" %}
-          מתנדנד
+          לא מבטיחים כלום
         {% when "pending" %}
-          ממתינים לתשובה
+          טרם השיבו
         {% else %} ERROR: unknown case {{party.recommendation}}
         {% endcase %}
       </h2>
@@ -74,7 +73,7 @@
             {% when 'yes' %}
               <span class="label label-success">נגד המאגר</span>
             {% when 'neutral' %}
-              <span class="label label-warning">נייטרלי</span>
+              <span class="label label-warning">ללא דעה</span>
             {% when 'pending' %}
               <span class="label label-default">ממתינים לתשובה</span>
             {% else %}
