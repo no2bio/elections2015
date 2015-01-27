@@ -4,38 +4,68 @@ layout: default
 <div class="sr-only"><a href="#content">Skip to content</a></div>
 
 <div class="container" id="content">
-    <div class="pull-right" style="padding: 0.5em">
-        <a href="http://www.no2bio.org">
-            <img src="img/logo.png" alt="no2bio logo">
-        </a>
-    </div>
-    <h1>בבחירות הקרובות, מבטלים את המאגר הביומטרי</h1>
-    <p>
-        הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר הסבר קצר <strong>לא נתוני אמת! סרק סרק!</strong>
-    </p>
-</div>
-<div class="container-fluid">
-    <h2 class="centered">האם הם ימחקו את המאגר הביומטרי?</h2>
-    <ul class="party-list">
-        {% for party in site.data.parties %}
-        <li class="{{party.recommendation}}">
-            <h3>
-                <a href="parties/{{party.alias}}.html">{{party.name}}</a>
-            </h3>
-            <div class="tag">
-                {% case party.recommendation %} 
-                    {% when "yes" %} 
-                        <div class="stamp stamp-yes">מבטיחים להגן על פרטיותך</div>
-                    {% when "no" %}
-                        <div class="stamp stamp-no">מבטיחים לפגוע בפרטיותך</div>
-                    {% when "neutral" %}
-                        <div class="stamp stamp-neutral">לא מבטיחים כלום</div>
-                    {% when "pending" %}
-                        <div class="stamp stamp-pending">טרם השיבו</div>
-                    {% else %} ERROR: unknown case {{party.recommendation}}
-                {% endcase %}
+    <div class="row">
+        <div class="col-sm-10">
+            <h1><strong>בבחירות הקרובות, מבטלים את המאגר הביומטרי</strong></h1>
+            {% include short-explanation.md %}
+        </div>
+        <div class="col-sm-2">
+            <div style="padding: 0.5em">
+                <a href="http://www.no2bio.org">
+                    <img src="img/logo.png" alt="no2bio logo">
+                </a>
             </div>
-        </li>
-        {% endfor %}
-    </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="legend">
+                <li class="legend-yes">יגנו על הנתונים שלך</li>
+                <li class="legend-no">יפקירו את הנתונים שלך</li>
+                <li class="legend-pending">לא מבטיחים כלום</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="party-board">
+                {% for party in site.data.parties %}
+                <li class="board board-{{party.status}}">
+                    <a href="parties/{{party.alias}}.html">
+                        <img class="party-logo" width="200" height="200" src="{{ '/img/parties/' | append:party.alias | append:'/logo.png' | prepend:site.baseurl }}">
+                        {{party.name}}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            
+            <ul class="party-list">
+                {% for party in site.data.parties %}
+                <li class="{{party.status}}">
+                    <h3>
+                        <a href="parties/{{party.alias}}.html">{{party.name}}</a>
+                    </h3>
+                    <div class="tag">
+                        {% case party.status %} 
+                            {% when "yes" %} 
+                                <div class="stamp stamp-yes">מבטיחים להגן על פרטיותך</div>
+                            {% when "no" %}
+                                <div class="stamp stamp-no">מבטיחים לפגוע בפרטיותך</div>
+                            {% when "neutral" %}
+                                <div class="stamp stamp-neutral">לא מבטיחים כלום</div>
+                            {% when "pending" %}
+                                <div class="stamp stamp-pending">טרם השיבו</div>
+                            {% else %} ERROR: unknown case {{party.recommendation}}
+                        {% endcase %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
 </div>

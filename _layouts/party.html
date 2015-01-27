@@ -30,72 +30,93 @@
         <i class="fa fa-arrow-right"></i>
         חזרה לכל המפלגות
       </a>
-      <h1>
-        {% case party.recommendation %} 
-        {% when "yes" %}
-          <i class="fa fa-smile-o"></i> 
-        {% when "no" %}
-          <i class="fa fa-frown-o"></i>
-        {% when "neutral" %}
-          <i class="fa fa-meh-o"></i>
-        {% when "pending" %}
-          <i class="fa fa-question-circle"></i>
-        {% endcase %}
-        {{ party.name }}
-      </h1>
-        
-      <h2 class="centered">
-        {% case party.recommendation %} 
-        {% when "yes" %}
-          מבטיחים להגן על פרטיותך
-        {% when "no" %}
-          מבטיחים לפגוע בפרטיותך
-        {% when "neutral" %}
-          לא מבטיחים כלום
-        {% when "pending" %}
-          טרם השיבו
-        {% else %} ERROR: unknown case {{party.recommendation}}
-        {% endcase %}
-      </h2>
-      {{ content }}
-      
-      <h3>רשימת הח״כים</h3>
-      <ul class="list-unstyled mk-list">
-      {% assign mks = site.data.mks | where:"party",partyAlias %}
-      {% for mk in mks %}
-          {% assign mkStatus = mk.status | remove:' '%}
-          <li class="li-{{mkStatus}}">
-            <i class="fa fa-user"></i>
-            {{mk.name}}
-            {% case mkStatus %}
-            {% when 'no' %}
-              <span class="label label-danger">בעד המאגר</span>
-            {% when 'yes' %}
-              <span class="label label-success">נגד המאגר</span>
-            {% when 'neutral' %}
-              <span class="label label-warning">ללא דעה</span>
-            {% when 'pending' %}
-              <span class="label label-default">ממתינים לתשובה</span>
-            {% else %}
-              <div style="direction:ltr">unknown status /{{mkStatus}}/</div>
-            {% endcase %}
-            
-            {% if mk.text %}
-            <span class="memo">{{ mk.text }}</span>
-            {% endif %}
-
-            <div class="contacts">
-              {% if mk.phone %}{{ mk.phone }}{% endif %}
-              {% if mk.email %}<a href="mailto:{{mk.email}}">{{ mk.email}}</a>{% endif %}
-              {% if mk.twitter %}<a href="{{mk.twitter}}"><i class="fa fa-twitter"></i></a>{% endif %}
-              {% if mk.facebook %}<a href="{{mk.facebook}}"><i class="fa fa-facebook"></i></a>{% endif %}
-              {% if mk.web %}<a href="{{mk.web}}"><i class="fa fa-globe"></i></a>{% endif %}
+      <div class="row">
+        <div class="col-sm-10">
+            <h1>
+              {% case party.status %} 
+              {% when "yes" %}
+                <i class="fa fa-smile-o"></i> 
+              {% when "no" %}
+                <i class="fa fa-frown-o"></i>
+              {% when "neutral" %}
+                <i class="fa fa-meh-o"></i>
+              {% when "pending" %}
+                <i class="fa fa-question-circle"></i>
+              {% endcase %}
+              {{ party.name }}
+            </h1>
+            <h2 class="centered">
+              {% case party.status %} 
+              {% when "yes" %}
+                יגנו על הנתונים שלך
+              {% when "no" %}
+                יפקירו את הנתונים שלך
+              {% when "neutral" %}
+                לא מבטיחים כלום
+              {% when "pending" %}
+                לא מבטיחים כלום
+              {% else %} ERROR: unknown case {{party.status}}
+              {% endcase %}
+            </h2>
+        </div>
+        <div class="col-sm-2">
+            <div style="padding: 0.5em">
+                <a href="http://www.no2bio.org">
+                    <img src="{{ '/img/logo.png' | prepend:site.baseurl}}" alt="no2bio logo">
+                </a>
             </div>
-          </li>
-      {% endfor %}
-      
-      </ul>
+        </div>
+      </div>
+      {{ content }}
+      <div class="row">
+        <div class="col-xs-12">
+            <ul class="legend">
+                <li class="legend-yes">יגנו על הנתונים שלך</li>
+                <li class="legend-no">יפקירו את הנתונים שלך</li>
+                <li class="legend-pending">לא מבטיחים כלום</li>
+            </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>רשימת הח״כים</h3>
+          <ul class="list-unstyled mk-list">
+          {% assign mks = site.data.mks | where:"party",partyAlias %}
+          {% for mk in mks %}
+              {% assign mkStatus = mk.status | remove:' '%}
+              <li class="li-{{mkStatus}}">
+                <i class="fa fa-user"></i>
+                {{mk.name}}
+                {% case mkStatus %}
+                {% when 'no' %}
+                  <span class="label label-danger">בעד המאגר</span>
+                {% when 'yes' %}
+                  <span class="label label-success">נגד המאגר</span>
+                {% when 'neutral' %}
+                  <span class="label label-warning">ללא דעה</span>
+                {% when 'pending' %}
+                  <span class="label label-default">ממתינים לתשובה</span>
+                {% else %}
+                  <div style="direction:ltr">unknown status /{{mkStatus}}/</div>
+                {% endcase %}
+                
+                {% if mk.text %}
+                <span class="memo">{{ mk.text }}</span>
+                {% endif %}
 
+                <div class="contacts">
+                  {% if mk.phone %}{{ mk.phone }}{% endif %}
+                  {% if mk.email %}<a href="mailto:{{mk.email}}">{{ mk.email}}</a>{% endif %}
+                  {% if mk.twitter %}<a href="{{mk.twitter}}"><i class="fa fa-twitter"></i></a>{% endif %}
+                  {% if mk.facebook %}<a href="{{mk.facebook}}"><i class="fa fa-facebook"></i></a>{% endif %}
+                  {% if mk.web %}<a href="{{mk.web}}"><i class="fa fa-globe"></i></a>{% endif %}
+                </div>
+              </li>
+          {% endfor %}
+          
+          </ul>        
+        </div>
+      </div>
     </div>
     
 

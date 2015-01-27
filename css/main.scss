@@ -3,10 +3,35 @@
 ---
 @charset "utf-8";
 
+@font-face {
+    font-family: 'Alef';
+    src: url('../fonts/Alef-Bold.eot');
+    src: url('../fonts/Alef-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Alef-Bold.woff') format('woff'),
+         url('../fonts/Alef-Bold.ttf') format('truetype'),
+         url('../fonts/Alef-Bold.svg#alefbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
 
+}
+
+
+
+
+@font-face {
+    font-family: 'Alef';
+    src: url('../fonts/Alef-Regular.eot');
+    src: url('../fonts/Alef-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Alef-Regular.woff') format('woff'),
+         url('../fonts/Alef-Regular.ttf') format('truetype'),
+         url('../fonts/Alef-Regular.svg#alefregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 // Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-family: Alef, Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
@@ -53,12 +78,13 @@ $on-laptop:        800px;
 
 body {
   direction: rtl;
-  background-color: #f3e14c;
+  background-color: #fee00a;
+  font-family: $base-font-family;
 }
 
-$color-yes: #22fe80;
-$color-no:  #F44;
-$color-pending: #CCC;
+$color-yes: #45f652;
+$color-no:  #f62c10;
+$color-pending: #000;
 $color-neutral: #AAF;
 
 .yes {
@@ -190,4 +216,103 @@ ul.mk-list .li-pending {
 }
 ul.mk-list .li-neutral {
   background-color: mix($color-neutral, white, 50%);
+}
+
+.warning {
+  background-color: red;
+  color: yellow;
+  border: 2px yellow solid;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+  text-align: center;
+  width: 300px;
+  position: fixed;
+  left: -70px;
+  top: 70px;
+  height: 2.5em;
+  -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+      -ms-transform: rotate(-45deg); /* IE 9 */
+          transform: rotate(-45deg);
+  z-index: 2000;
+  box-shadow: 0 4px 4px rgba(0,0,0,.5);
+}
+
+
+ul.party-board {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  li {
+    display: inline-block;
+    margin: 5px;
+    text-align: center;
+    img {
+      display: block;
+    }
+  }
+}
+
+
+.party-logo {
+  object-fit: cover;
+  border: 10px solid black;
+  border-radius: 50%;
+  position: relative;
+}
+
+a:hover .party-logo {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+  top: -4px;
+}
+
+a:active .party-logo {
+  top: 2px;
+  box-shadow: 0 -2px 6px rgba(255,255,255,0.5);
+}
+
+.board-pending {
+  .party-logo {
+    border-color: $color-pending;
+  }
+}
+
+.board-neutral {
+  .party-logo {
+    border-color: $color-neutral;
+  }
+}
+.board-yes {
+  .party-logo {
+    border-color: $color-yes;
+  }
+}
+
+.board-no {
+  .party-logo {
+    border-color: $color-no;
+  }
+}
+
+ul.legend {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    border-bottom: 15px solid black;
+    padding: 3px 7px;
+  }
+}
+
+ul.legend li.legend-yes {
+  border-color: $color-yes;
+}
+
+ul.legend li.legend-no {
+  border-color: $color-no;
+}
+
+ul.legend li.legend-pending {
+  border-color: $color-pending;
 }

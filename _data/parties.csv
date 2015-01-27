@@ -1,10 +1,23 @@
-name,web,facebook,twitter,alias,recommendation
-הבית היהודי,http://www.baityehudi.org.il,https://www.facebook.com/baityehudi.p,https://twitter.com/naftalibennett,baityehudi,no
-הליכוד,https://likud.org.il,,,likud,yes
-יהדות התורה,,,,yahaduthatora,neutral
-ישראל ביתנו,,,,israelbeteinu,pending
-רשימה ערבית מאוחדת,,,,reshimaaravit,pending
-יש עתיד,http://www.yeshatid.org.il,,,yeshatid,yes
-המחנה הציוני,http://www.havoda.org.il/Web/Default.aspx,,,havoda,pending
-כולנו,,,,culanu,no
-מרצ,,,,meretz,yes
+name,web,facebook,twitter,alias,status
+הבית היהודי,http://www.baityehudi.org.il,https://www.facebook.com/baityehudi.p,https://twitter.com/naftalibennett,habait-hayehudi,no
+הליכוד,https://likud.org.il,https://www.facebook.com/LikudNetanyahu,https://twitter.com/likud_party,likud,yes
+המחנה הציוני,http://www.havoda.org.il/Web/Default.aspx,https://www.facebook.com/havoda,https://twitter.com/havodaparty,hamahane-hazioni,yes
+יהדות התורה,,https://www.facebook.com/pages/%D7%99%D7%94%D7%93%D7%95%D7%AA-%D7%94%D7%AA%D7%95%D7%A8%D7%94/526338024136443,,yahadut-hatora,no
+יש עתיד,http://www.yeshatid.org.il,https://www.facebook.com/pages/%D7%9E%D7%A4%D7%9C%D7%92%D7%AA-%D7%99%D7%A9-%D7%A2%D7%AA%D7%99%D7%93/426502237384307,https://twitter.com/YeshAtidParty/media,yeshatid,yes
+ישראל ביתנו,http://www.beytenu.org.il/,https://www.facebook.com/beytenu,https://twitter.com/beytenu,yisrael-beitenu,pending
+כולנו,,https://www.facebook.com/kulanu.kahlonim,,kulanu,pending
+מרצ,http://meretz.org.il/,https://www.facebook.com/Meretz,https://twitter.com/meretzparty?original_referer=http%3A%2F%2Fmeretz.org.il%2F&profile_id=43303406&query=null&related=null&tw_i=560016216283037696&tw_p=embeddedtimeline&tw_w=559656067949293570,meretz,yes
+רשימה ערבית מאוחדת,,,,reshima-aravit,pending
+"ש""ס",,https://www.facebook.com/pages/%D7%9E%D7%A4%D7%9C%D7%92%D7%AA-%D7%A9%D7%A1-%D7%94%D7%93%D7%A3-%D7%94%D7%A8%D7%A9%D7%9E%D7%99/250584351635475,,shas,no
+אגודת ישראל,,,,aguda,yes
+עלה ירוק,,,,ale-yarok,yes
+עם שלם,,,,am-shalem,no
+בל״ד,,,,balad,yes
+העם איתנו,,,,haam-itanu,pending
+תע״ל,,,,taal,pending
+חד״ש,,,,hadash,yes
+התקווה,,,,hatikva,pending
+קדימה,,,,kadima,pending
+אור,,,,or,yes
+רע״ם-תע״ל,,,,raam-taal,pending
+מד״ע,,,,mda,no
