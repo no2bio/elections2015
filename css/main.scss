@@ -82,6 +82,10 @@ body {
   font-family: $base-font-family;
 }
 
+h1 {
+  font-weight: bold;
+}
+
 $color-yes: #45f652;
 $color-no:  #f62c10;
 $color-pending: #000;
@@ -130,7 +134,6 @@ ul.party-list li {
   text-align: right;
   border-radius: 1em;
   padding: 0.5em;
-  /* box-shadow: 0 4px 4px rgba(0,0,0,.5); */
   margin: 1em;
 
 }
@@ -245,10 +248,19 @@ ul.party-board {
   text-align: center;
   li {
     display: inline-block;
+    position: relative;
     margin: 5px;
     text-align: center;
     img {
       display: block;
+    }
+    a {
+      font-size: 1.5em;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: none;
+      color: white;
     }
   }
 }

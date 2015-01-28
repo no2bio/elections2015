@@ -19,11 +19,14 @@ layout: default
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <ul class="legend">
-                <li class="legend-yes">יגנו על הנתונים שלך</li>
-                <li class="legend-no">יפקירו את הנתונים שלך</li>
-                <li class="legend-pending">לא מבטיחים כלום</li>
-            </ul>
+            <div class="centered">
+                <ul class="legend">
+                    <li class="legend-yes">יגנו על הנתונים שלך</li>
+                    <li class="legend-no">יפקירו את הנתונים שלך</li>
+                    <li class="legend-pending">לא מבטיחים כלום</li>
+                </ul>
+                
+            </div>
         </div>
     </div>
     <div class="row">
@@ -38,34 +41,6 @@ layout: default
                 </li>
                 {% endfor %}
             </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            
-            <ul class="party-list">
-                {% for party in site.data.parties %}
-                <li class="{{party.status}}">
-                    <h3>
-                        <a href="parties/{{party.alias}}.html">{{party.name}}</a>
-                    </h3>
-                    <div class="tag">
-                        {% case party.status %} 
-                            {% when "yes" %} 
-                                <div class="stamp stamp-yes">מבטיחים להגן על פרטיותך</div>
-                            {% when "no" %}
-                                <div class="stamp stamp-no">מבטיחים לפגוע בפרטיותך</div>
-                            {% when "neutral" %}
-                                <div class="stamp stamp-neutral">לא מבטיחים כלום</div>
-                            {% when "pending" %}
-                                <div class="stamp stamp-pending">טרם השיבו</div>
-                            {% else %} ERROR: unknown case {{party.recommendation}}
-                        {% endcase %}
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-
         </div>
     </div>
 </div>
