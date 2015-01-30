@@ -1,9 +1,25 @@
-party,name,status,facebook,twitter,email,phone,web,text
-hamahane-hazioni,ישראל ישראלי, yes, http://facebook.com/jd,http://twitter.com/jd,jd@havoda.org.il,03-1234567,http://israelisraeli.org.il,נגד המאגר עוד מכיתה ו׳
-hamahane-hazioni,שמחה בעסה-שוסטר, no, http://facebook.com/jd,,jd@havoda.org.il,03-1234567,,חבר של שיטרית
-hamahane-hazioni,יואבי אליאסי, pending, http://facebook.com/jd,http://twitter.com/jqweqwed,,03-1234567,,אמר שלא החליט: http://www.ynet.co.il
-hamahane-hazioni,יהויכן חפץ, neutral, http://facebook.com/jd,http://twitter.com/jdadsd,jadasdad@havoda.org.il,,,
-likud,יהויכן חפץ, neutral, http://facebook.com/jd,http://twitter.com/jdadsd,jadasdad@likud.org.il,,,
-likud,יהויכן חפץ, neutral, http://facebook.com/jd,http://twitter.com/jdadsd,jadasdad@likud.org.il,,,
-likud,יהויכן חפץ, neutral, http://facebook.com/jd,http://twitter.com/jdadsd,jadasdad@likud.org.il,,,
-likud,יהויכן חפץ, neutral, http://facebook.com/jd,http://twitter.com/jdadsd,jadasdad@likud.org.il,,,
+party,name,status,facebook,twitter,email,phone,web,text,
+hamahane-hazioni,יצחק הרצוג,yes,https://www.facebook.com/IsaacHerzog,,iherzog@knesset.gov.il,050-5230119,,,
+hamahane-hazioni,ציפי ליבני,no,https://www.facebook.com/tzipilivni,https://twitter.com/tzipi_livni,zlivni@knesset.gov.il,,,,
+hamahane-hazioni,שלי יחימוביץ',yes,https://www.facebook.com/ShellyYachimovich,http://twitter.com/jqweqwed,syechimovich@knesset.gov.il,050-5699777,http://www.shelly.org.il/,"""המאגר הביומטרי- ניסוי בבני אדם""",
+hamahane-hazioni,סתיו שפיר,neutral,https://www.facebook.com/stavshaffir?fref=ts,https://twitter.com/stavshaffir,sshaffir@knesset.gov.il,050-8817888,http://stavshaffir.co.il/,,
+hamahane-hazioni,איציק שמולי,neutral,https://www.facebook.com/itzik.shmuli,http://twitter.com/jdadsd,ishmuli@knesset.gov.il,054-9755547,,,
+hamahane-hazioni,עומר בר-לב,neutral,https://www.facebook.com/barlev.omer,,obarlev@knesset.gov.il,054-4300578,,,
+hamahane-hazioni,יחיאל בר,neutral,https://www.facebook.com/pages/Hilik-Bar-%D7%97%D7%99%D7%9C%D7%99%D7%A7-%D7%91%D7%A8/620206311338749,,ybar@knesset.gov.il,050-6206688,,,
+hamahane-hazioni,עמיר פרץ,neutral,https://www.facebook.com/Peretz.Amir,https://twitter.com/amirperetz,aperetz@knesset.gov.il,050-5644611,,,
+hamahane-hazioni,מירב מיכאלי,yes,https://www.facebook.com/MichaeliMerav,,michaelim@knesset.gov.il,050-5292526,,,
+hamahane-hazioni,איתן כבל,yes,https://www.facebook.com/eitan.cabel,https://twitter.com/cabel_eitan,ecabel@knesset.gov.il,050-5521979,,http://www.nrg.co.il/online/1/ART2/324/377.html,הגיש הצעת חוק לביטול המאגר
+hamahane-hazioni,משוריין,,,,,,,,
+hamahane-hazioni,אראל מרגלית,,https://www.facebook.com/erelmargalit,https://twitter.com/erelmargalit,emargalit@knesset.gov.il,054-5642200,,,
+hamahane-hazioni,מיקי רוזנטל,,https://www.facebook.com/miki.rosenthal,https://twitter.com/mikiros1,"mikiros@gmail.com, mrosenthal@knesset.gov.il",050-5406200,,,
+hamahane-hazioni,רויטל סוויד,,https://www.facebook.com/pages/%D7%A8%D7%95%D7%99%D7%98%D7%9C-%D7%A1%D7%95%D7%99%D7%93-%D7%A2%D7%95%D7%93-Revital-Swid/212547315512949,,,054-4534710,,,
+hamahane-hazioni,דני עטר,,https://www.facebook.com/danielatar.il,https://twitter.com/danyatar,Dany@hagilboa.org.il,050-5338932,https://dannyatar.wordpress.com/,,
+hamahane-hazioni,משוריין,,,,,,,,
+hamahane-hazioni,זוהיר בהלול,,https://www.facebook.com/zohirbhlol,,,052-3466333,,,
+hamahane-hazioni,איתן ברושי,,https://www.facebook.com/pages/%D7%90%D7%99%D7%AA%D7%9F-%D7%91%D7%A8%D7%95%D7%A9%D7%99/389464081230676,,Eitanbroshi@gmail.com,547234283,http://www.kibbutz.org.il/cgi-webaxy/item?tnua_mazkal-welcom,,
+hamahane-hazioni,מיכל בירן,,https://www.facebook.com/MichalBiran,,mbiran@knesset.gov.il,050-3030502,,,
+hamahane-hazioni,נחמן שי,yes,https://www.facebook.com/NachmanShai,,nshai@knesset.gov.il,050-5232900,http://www.nachmanshai.co.il/,http://www.mako.co.il/nexter-archive/Article-5a73491c10e6631006.htm,הגיש הצעת חוק לביטול המאגר
+hamahane-hazioni,משוריין,,,,,,,,
+hamahane-hazioni,איילת נחמיאס ורבין,,https://www.facebook.com/ayelet.nahmiasverbin,https://twitter.com/ayeletnnv,ayeletnn@yahoo.com,054-7246699,,,
+hamahane-hazioni,יוסי יונה,,,,,,,,
+,משוריין,,,,,,,,

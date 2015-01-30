@@ -46,9 +46,8 @@
                 יפקירו את הנתונים שלך
               {% when "neutral" %}
                 לא מבטיחים כלום
-              {% when "pending" %}
+              {% else %}
                 לא מבטיחים כלום
-              {% else %} ERROR: unknown case {{party.status}}
               {% endcase %}
             </h2>
         </div>
@@ -84,10 +83,8 @@
                   <span class="label label-success">נגד המאגר</span>
                 {% when 'neutral' %}
                   <span class="label label-warning">ללא דעה</span>
-                {% when 'pending' %}
-                  <span class="label label-default">ממתינים לתשובה</span>
                 {% else %}
-                  <div style="direction:ltr">unknown status /{{mkStatus}}/</div>
+                  <span class="label label-default">ממתינים לתשובה</span>
                 {% endcase %}
                 
                 {% if mk.text %}
@@ -114,5 +111,11 @@
 
     <script src="{{ "/js/jquery-2.1.3.min.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+    <script>
+      $(document).ready( function() {
+
+      });
+    </script>
+    {% include ga.html %}
   </body>
 </html>
