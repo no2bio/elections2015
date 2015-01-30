@@ -267,7 +267,7 @@ ul.party-board {
 
 
 .party-logo {
-  object-fit: cover;
+  object-fit: contain;
   border: 10px solid black;
   border-radius: 50%;
   position: relative;
@@ -327,4 +327,11 @@ ul.legend li.legend-no {
 
 ul.legend li.legend-pending {
   border-color: $color-pending;
+}
+
+
+li.social-button {
+  padding: 1em;
+  text-align: center;
+  display: inline-block;
 }
