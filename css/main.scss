@@ -206,33 +206,72 @@ ul.party-list li a {
   color: black;
 }
 
+
 ul.mk-list {
   padding: 0;
-
+  list-style: outside none none;
+  text-align: center;
   li {
     position: relative;
-    margin: 1em;
-    padding: 0.5em;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3) inset;
-    border-radius: 5px;
-    
+    display: inline-block;
+    width: 150px;
+    height: 220px;
+    margin-bottom: 5px;
+
+    .mk-name{
+      text-align: center;
+      font-weight: bold;
+    }
     .contacts {
-      float: left;
+      
+    }
+    a {
+      color: black;
+    }
+    a:hover {
+      text-shadow: 0 0 8px white;
     }
   }
 }
 
-ul.mk-list .li-yes {
-  background-color: mix($color-yes, white, 50%);
+ul.mk-list .li-yes  {
+  background-color: $color-yes;
 }
-ul.mk-list .li-no {
-  background-color: mix($color-no, white, 50%);
+
+ul.mk-list .li-no  {
+  background-color: $color-no;
 }
-ul.mk-list .li-pending {
-  background-color: mix($color-pending, white, 50%);
+
+ul.mk-list .li-neutral  {
+  background-color: #AAA;
 }
-ul.mk-list .li-neutral {
-  background-color: mix($color-neutral, white, 50%);
+
+ul.mk-list .li-pending  {
+  background-color: #AAA;
+}
+
+ul.mk-list li::after {
+  content:'';
+  display: block;
+  position: absolute;
+  top:0;
+  height:150px;
+  left:0;
+  right:0;
+  background-color: rgba(0,0,0,0.5);
+}
+
+ul.mk-list .li-yes::after {
+  background-color: fade-out($color-yes, 0.5);
+}
+ul.mk-list .li-no::after {
+  background-color: fade-out($color-no, 0.5);
+}
+ul.mk-list .li-pending::after {
+  background-color: fade-out($color-pending, 0.5);
+}
+ul.mk-list .li-neutral::after {
+  background-color: fade-out($color-pending, 0.5);
 }
 
 .warning {

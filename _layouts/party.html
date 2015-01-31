@@ -20,69 +20,62 @@ title: test
         </div>
       </div>
       <div class="row">
-        <div class="col-md-9">
-            <h1>
-              {{ party.name }}
-            </h1>
-            <h2>
-              {% case party.status %} 
-              {% when "yes" %}
-                יגנו על הנתונים שלך
-              {% when "no" %}
-                יפקירו את הנתונים שלך
-              {% when "neutral" %}
-                לא מבטיחים כלום
-              {% else %}
-                לא מבטיחים כלום
-              {% endcase %}
-            </h2>
+        
+        <div class="col-md-6">
+          <div class="page-title">
+            <h1>{{ party.name }}</h1>
+          </div>
+          <h2>
+            {% case party.status %} 
+            {% when "yes" %}
+              יגנו על הנתונים שלך
+            {% when "no" %}
+              יפקירו את הנתונים שלך
+            {% when "neutral" %}
+              לא מבטיחים כלום
+            {% else %}
+              לא מבטיחים כלום
+            {% endcase %}
+          </h2>
         </div>
-        <div class="col-md-3">
-            <img alt="{{ party.name }} logo" 
+        <div class="col-md-6">
+            <div style="padding: 0.5em"  class="to-left">
+                <img alt="{{ party.name }} logo" 
                  src="{{ '/img/parties/' | append:party.alias | append:'/logo.png' | prepend:site.baseurl }}" />
+            </div>
         </div>
       </div>
-      {{ content }}
       <div class="row">
-        <h3>רשימת הח״כים</h3>
         <div class="col-xs-12">
-            <ul class="legend">
-                <li class="legend-yes">יגנו על הנתונים שלך</li>
-                <li class="legend-no">יפקירו את הנתונים שלך</li>
-                <li class="legend-pending">לא מבטיחים כלום</li>
-            </ul>
+          <div style="width: 100px; margin: auto; text-align: center; margin-bottom: 1em;">
+              <div class="share-button"></div>
+          </div>
+          <ul class="legend centered">
+              <li class="legend-yes">יגנו על הנתונים שלך</li>
+              <li class="legend-no">יפקירו את הנתונים שלך</li>
+              <li class="legend-pending">לא מבטיחים כלום</li>
+          </ul>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <ul class="list-unstyled mk-list">
+          <ul class="mk-list">
           {% assign mks = site.data.mks | where:"party",partyAlias %}
           {% for mk in mks %}
               {% assign mkStatus = mk.status | remove:' '%}
+              {% if mkStatus == '' %} {% assign mkStatus = 'pending' %} {% endif %}
               <li class="li-{{mkStatus}}">
-                <i class="fa fa-user"></i>
-                {{mk.name}}
-                {% case mkStatus %}
-                {% when 'no' %}
-                  <span class="label label-danger">בעד המאגר</span>
-                {% when 'yes' %}
-                  <span class="label label-success">נגד המאגר</span>
-                {% when 'neutral' %}
-                  <span class="label label-warning">ללא דעה</span>
-                {% else %}
-                  <span class="label label-default">ממתינים לתשובה</span>
-                {% endcase %}
-                
-                {% if mk.text %}
-                <span class="memo">{{ mk.text }}</span>
-                {% endif %}
-
+                <img class="mk-image" src="{{ '/img/mks/mk-default.png' | prepend: site.baseurl }}" alt="{{ mk.name}}" />
+                <div class="mk-name">
+                  {{mk.name}}
+                </div>
                 <div class="contacts">
-                  {% if mk.phone %}{{ mk.phone }}{% endif %}
-                  {% if mk.email %}<a href="mailto:{{mk.email}}">{{ mk.email}}</a>{% endif %}
+                  {% if mk.phone %}{{ mk.phone }}{% endif %}<br>
+                  {% if mk.email %}<a href="mailto:{{mk.email}}"><i class="fa fa-envelope-o"></i></a>{% endif %}
                   {% if mk.twitter %}<a href="{{mk.twitter}}"><i class="fa fa-twitter"></i></a>{% endif %}
                   {% if mk.facebook %}<a href="{{mk.facebook}}"><i class="fa fa-facebook"></i></a>{% endif %}
                   {% if mk.web %}<a href="{{mk.web}}"><i class="fa fa-globe"></i></a>{% endif %}
+                  <br />
                 </div>
               </li>
           {% endfor %}
