@@ -15,9 +15,6 @@
 
 }
 
-
-
-
 @font-face {
     font-family: 'Alef';
     src: url('../fonts/Alef-Regular.eot');
@@ -129,9 +126,9 @@ $color-neutral: #AAF;
 }
 
 footer {
-  margin-top: 3em;
+  margin: 3em;
   border-top: 1px black solid;
-  padding-top: 1em;
+  padding-top: 3em;
   font-size: 0.7em;
   text-align: center;
 }
@@ -258,7 +255,6 @@ ul.mk-list .li-neutral {
   box-shadow: 0 4px 4px rgba(0,0,0,.5);
 }
 
-
 ul.party-board {
   list-style: none;
   padding: 0;
@@ -266,33 +262,26 @@ ul.party-board {
   li {
     display: inline-block;
     position: relative;
-    margin: 5px;
+    margin: 0;
+    padding:0;
     text-align: center;
+    width:150px;
     img {
       display: block;
     }
     a {
       font-size: 1.5em;
       text-decoration: none;
+      display: block;
     }
     a:hover {
-      text-decoration: none;
-      color: white;
+      background-color: white;
     }
   }
 }
 
-
 .party-logo {
   object-fit: contain;
-  border: 10px solid black;
-  border-radius: 50%;
-  position: relative;
-}
-
-a:hover .party-logo {
-  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
-  top: -4px;
 }
 
 a:active .party-logo {
@@ -306,21 +295,41 @@ a:active .party-logo {
   }
 }
 
-.board-neutral {
-  .party-logo {
-    border-color: $color-neutral;
-  }
-}
-.board-yes {
-  .party-logo {
-    border-color: $color-yes;
-  }
+.board {
+  position: realtive;
 }
 
-.board-no {
-  .party-logo {
-    border-color: $color-no;
-  }
+.board a::after {
+  content:'';
+  display: block;
+  position: absolute;
+  margin:0;
+  padding:0;
+  top:0;
+  left:0;
+  height: 150px;
+  right:0;
+  background-color: rgba(0,0,0,0.5);
+}
+.board-yes a{
+  color: darken($color-yes,30);
+}
+.board-no a{
+  color: $color-no;
+}
+.board-pending a{
+  color: $color-pending;
+}
+
+.board-yes a::after {
+  background-color: fade-out($color-yes, 0.5);
+}
+
+.board-no a::after {
+  background-color: fade-out($color-no, 0.5);
+}
+.board-pending a::after {
+  background-color: fade-out($color-pending, 0.5);
 }
 
 ul.legend {
@@ -331,6 +340,7 @@ ul.legend {
     display: inline-block;
     border-bottom: 15px solid black;
     padding: 3px 7px;
+    width: 150px;
   }
 }
 
@@ -346,9 +356,3 @@ ul.legend li.legend-pending {
   border-color: $color-pending;
 }
 
-
-li.social-button {
-  padding: 1em;
-  text-align: center;
-  display: inline-block;
-}
