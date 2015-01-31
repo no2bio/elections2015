@@ -85,6 +85,23 @@ body {
 h1 {
   font-weight: bold;
 }
+h3 {
+  font-weight: bold;
+}
+
+.to-left {
+  text-align: left;
+}
+
+.explanation {
+  font-size: 1.4em;
+}
+
+.page-title {
+  h1 {
+    font-size: 3.5em;
+  }
+}
 
 $color-yes: #45f652;
 $color-no:  #f62c10;
