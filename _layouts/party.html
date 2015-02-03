@@ -24,7 +24,7 @@ title: test
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <br> 
       <a href="{{"/" | prepend: site.baseurl}}">
         <i class="fa fa-arrow-right"></i>
@@ -33,7 +33,13 @@ title: test
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-sm-4">
+        <div class="title-party-logo" >
+            <img alt="{{ party.name }} logo" 
+             src="{{ '/img/parties/' | append:party.alias | append:'/' | append:party.alias | append:'.png' | prepend:site.baseurl }}" />
+        </div>
+    </div>
+    <div class="col-sm-8">
       <div class="page-title">
         <h1>{{ party.name }}</h1>
         <div class="partyStatusMessage">
@@ -100,20 +106,15 @@ title: test
           {% endif %}
       {% endcase %}
     </div>
-    <div class="col-md-2">
-        <div style="padding: 0.5em"  class="to-left">
-            <img alt="{{ party.name }} logo" 
-             src="{{ '/img/parties/' | append:party.alias | append:'/' | append:party.alias | append:'.png' | prepend:site.baseurl }}" />
-        </div>
-    </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <div class="centered">
         <div style="width: 100px; margin: auto;">
           <div class="share-button"></div>
         </div>
       </div>
+      {{ content }}
       <ul class="legend centered">
           <li class="legend-yes">יגנו על הנתונים שלך</li>
           <li class="legend-no">יפקירו את הנתונים שלך</li>
