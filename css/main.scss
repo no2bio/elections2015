@@ -36,7 +36,7 @@ $base-line-height: 1.5;
 $spacing-unit:     30px;
 
 $text-color:       #111;
-$background-color: #fdfdfd;
+$background-color: #fee00a;
 $brand-color:      #2a7ae2;
 
 $grey-color:       #828282;
@@ -75,7 +75,7 @@ $on-laptop:        800px;
 
 body {
   direction: rtl;
-  background-color: #fee00a;
+  background-color: $background-color;
   font-family: $base-font-family;
 }
 
@@ -84,6 +84,24 @@ h1 {
 }
 h3 {
   font-weight: bold;
+}
+
+a {
+  color: darken( $background-color, 25);
+  &:hover {
+    text-decoration: none;
+    color: darken( $background-color, 15 );
+  }
+  &:active {
+    text-decoration: none;
+    color: white; 
+    text-shadow: 0px 0px 1px black;
+
+  }
+  &:visited {
+    color: darken( $background-color, 30);
+    text-decoration: none;
+  }
 }
 
 .to-left {
@@ -133,6 +151,12 @@ footer {
   text-align: center;
 }
 
+// Party page
+
+.page-title h1 {
+  margin: 0;
+}
+
 ul.party-list {
   margin: 0;
   text-align: center;
@@ -163,49 +187,14 @@ ul.party-list li .tag {
   padding: 0.5em;
 }
 
-.stamp {
-  font-size: 1.5em;
-  border-radius: 10px;
-  border: 3px solid black;
-  padding: 5px;
-  position: relative;
-  box-shadow: 0 0 2px rgba(0,0,0,0.5);
-  background-color: white;
-  top: 0.5em;
-  left: -0.5em;
-  text-align: center;
-  font-weight: bold;
-  -webkit-transform: rotate(-25deg); /* Chrome, Safari, Opera */
-      -ms-transform: rotate(-25deg); /* IE 9 */
-          transform: rotate(-25deg);
-  z-index: 1000;
-}
-
-.stamp-yes{
-  border-color: darken($color-yes, 30%);
-  color: darken($color-yes, 30%);
-  background-color: mix($color-yes, white, 40%);
-}
-.stamp-no{
-  border-color: darken($color-no, 30%);
-  color: darken($color-no, 30%);
-  background-color: mix($color-no, white, 40%);
-}
-.stamp-pending{
-  border-color: darken($color-pending, 30%);
-  color: darken($color-pending, 30%);
-  background-color: mix($color-pending, white, 40%);
-}
-.stamp-neutral{
-  border-color: darken($color-neutral, 20%);
-  color: darken($color-neutral, 20%);
-  background-color: mix($color-neutral, white, 40%);
-}
-
 ul.party-list li a {
   color: black;
 }
 
+.partyStatusMessage {
+  font-size: 1.5em;
+  font-variant: oblique;
+}
 
 ul.mk-list {
   padding: 0;
@@ -216,7 +205,7 @@ ul.mk-list {
     display: inline-block;
     width: 150px;
     height: 220px;
-    margin-bottom: 5px;
+    margin: 1em;
 
     .mk-name{
       text-align: center;

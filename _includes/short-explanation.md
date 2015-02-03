@@ -2,3 +2,5 @@
 מי מבטיח <span class="yes">להגן על הנתונים שלנו ולבטל את המאגר?</span>
 מי <span class="no">מפקיר את הפרטיות שלנו?</span> 
 את ההחלטה בקלפי תעשו בעצמכם.
+
+<a href="http://no2bio.org/the-problem/" target="_blank">למידע נוסף</a>

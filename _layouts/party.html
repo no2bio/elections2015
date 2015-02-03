@@ -2,86 +2,172 @@
 layout: default
 title: test
 ---
-    {% assign partyAlias = page.url | split:'/' | last | split :'.' | first %}
-    {% for p in site.data.parties %}
-      {% if p.alias == partyAlias %}
-        {% assign party=p %}
-      {% endif %}
-    {% endfor %}
-    <a class="sr-only" href="#content">skip to content</a>
-  
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <a href="{{"/" | prepend: site.baseurl}}">
-            <i class="fa fa-arrow-right"></i>
-            חזרה לכל המפלגות
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        
-        <div class="col-md-6">
-          <div class="page-title">
-            <h1>{{ party.name }}</h1>
-          </div>
-          <h2>
-            {% case party.status %} 
-            {% when "yes" %}
-              יגנו על הנתונים שלך
-            {% when "no" %}
-              יפקירו את הנתונים שלך
-            {% when "neutral" %}
-              לא מבטיחים כלום
-            {% else %}
-              לא מבטיחים כלום
-            {% endcase %}
-          </h2>
-        </div>
-        <div class="col-md-6">
-            <div style="padding: 0.5em"  class="to-left">
-                <img alt="{{ party.name }} logo" 
-                 src="{{ '/img/parties/' | append:party.alias | append:'/logo.png' | prepend:site.baseurl }}" />
-            </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div style="width: 100px; margin: auto; text-align: center; margin-bottom: 1em;">
-              <div class="share-button"></div>
-          </div>
-          <ul class="legend centered">
-              <li class="legend-yes">יגנו על הנתונים שלך</li>
-              <li class="legend-no">יפקירו את הנתונים שלך</li>
-              <li class="legend-pending">לא מבטיחים כלום</li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <ul class="mk-list">
-          {% assign mks = site.data.mks | where:"party",partyAlias %}
-          {% for mk in mks %}
-              {% assign mkStatus = mk.status | remove:' '%}
-              {% if mkStatus == '' %} {% assign mkStatus = 'pending' %} {% endif %}
-              <li class="li-{{mkStatus}}">
-                <img class="mk-image" src="{{ '/img/mks/mk-default.png' | prepend: site.baseurl }}" alt="{{ mk.name}}" />
-                <div class="mk-name">
-                  {{mk.name}}
-                </div>
-                <div class="contacts">
-                  {% if mk.phone %}{{ mk.phone }}{% endif %}<br>
-                  {% if mk.email %}<a href="mailto:{{mk.email}}"><i class="fa fa-envelope-o"></i></a>{% endif %}
-                  {% if mk.twitter %}<a href="{{mk.twitter}}"><i class="fa fa-twitter"></i></a>{% endif %}
-                  {% if mk.facebook %}<a href="{{mk.facebook}}"><i class="fa fa-facebook"></i></a>{% endif %}
-                  {% if mk.web %}<a href="{{mk.web}}"><i class="fa fa-globe"></i></a>{% endif %}
-                  <br />
-                </div>
-              </li>
-          {% endfor %}
-          
-          </ul>        
-        </div>
+{% assign partyAlias = page.url | split:'/' | last | split :'.' | first %}
+{% for p in site.data.parties %}
+  {% if p.alias == partyAlias %}
+    {% assign party=p %}
+  {% endif %}
+{% endfor %}
+
+{% capture rawStatusMessage %}
+  {% case party.status %} 
+    {% when "yes" %}
+      יגנו על הנתונים שלך
+    {% when "no" %}
+      יפקירו את הנתונים שלך
+    {% else %}
+      לא מבטיחים כלום
+  {% endcase %}
+{% endcapture %}
+{% assign statusMessage= rawStatusMessage | strip_newlines | replace:'  ','' %}
+<a class="sr-only" href="#content">skip to content</a>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <br> 
+      <a href="{{"/" | prepend: site.baseurl}}">
+        <i class="fa fa-arrow-right"></i>
+        חזרה לכל המפלגות
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div style="width: 100px; margin-top: 1.5em;">
+          <div class="share-button"></div>
       </div>
     </div>
-    
+    <div class="col-md-6">
+      <div class="page-title">
+        <h1>{{ party.name }}</h1>
+        <div class="partyStatusMessage">
+          {{ statusMessage }}
+        </div>
+      </div>
+      {% capture fbStatus %}{% include fb-{{party.status}}.html username=party.name %}{% endcapture %}
+      {% capture twitterStatus %}{% include twitter-{{party.status}}.html username=party.twitter %}{% endcapture %}
+      {% case party.status %} 
+        {% when "yes" %}
+          {% if party.facebook %}
+            <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html"
+                target="_blank">
+              <i class="fa fa-facebook-square fa-3x"></i>
+            </a>
+          {% endif %}
+          {% if party.twitter %}
+            <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Felections2015.no2bio.org&via=no2bio&text={{ twitterStatus | cgi_escape }}" target="_blank">
+              <i class="fa fa-twitter fa-3x"></i>
+            </a>
+          {% endif %}
+          {% if party.web %}
+            <a href="{{party.web}}" target="_blank">
+              <i class="fa fa-globe fa-3x"></i>
+            </a>
+          {% endif %}
+
+        {% when "no" %}
+          <h4>ספרו להם למה הם טועים</h4>
+          {% if party.facebook %}
+            <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html"
+                target="_blank">
+              <i class="fa fa-facebook-square fa-3x"></i>
+            </a>
+          {% endif %}
+          {% if party.twitter %}
+            <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Felections2015.no2bio.org&via=no2bio&text={{ twitterStatus | cgi_escape }}" target="_blank">
+              <i class="fa fa-twitter fa-3x"></i>
+            </a>
+          {% endif %}
+          {% if party.web %}
+            <a href="{{party.web}}" target="_blank">
+              <i class="fa fa-globe fa-3x"></i>
+            </a>
+          {% endif %}
+        {% else %}
+          <h4>עיזרו לנו לשכנע אותם להחליט נכון</h4>
+          {% if party.facebook %}
+            <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html"
+                target="_blank">
+              <i class="fa fa-facebook-square fa-3x"></i>
+            </a>
+          {% endif %}
+          {% if party.twitter %}
+            <a href="https://twitter.com/intent/tweet?url=http://{{site.baseurl |cgi_encode}}parties/{{party.alias}}.html&via=no2bio&text={{ twitterStatus | cgi_escape }}" target="_blank">
+              <i class="fa fa-twitter fa-3x"></i>
+            </a>
+          {% endif %}
+          {% if party.web %}
+            <a href="{{party.web}}" target="_blank">
+              <i class="fa fa-globe fa-3x"></i>
+            </a>
+          {% endif %}
+      {% endcase %}
+    </div>
+    <div class="col-md-2">
+        <div style="padding: 0.5em"  class="to-left">
+            <img alt="{{ party.name }} logo" 
+             src="{{ '/img/parties/' | append:party.alias | append:'/' | append:party.alias | append:'.png' | prepend:site.baseurl }}" />
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="legend centered">
+          <li class="legend-yes">יגנו על הנתונים שלך</li>
+          <li class="legend-no">יפקירו את הנתונים שלך</li>
+          <li class="legend-pending">לא מבטיחים כלום</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="mk-list">
+      {% assign mks = site.data.mks | where:"party",partyAlias %}
+      {% for mk in mks %}
+          {% assign mkStatus = mk.status | remove:' '%}
+          {% if mkStatus == '' %} {% assign mkStatus = 'pending' %} {% endif %}
+          <li class="li-{{mkStatus}}">
+            <img class="mk-image" src="{{ '/img/mks/mk-default.png' | prepend: site.baseurl }}" alt="{{ mk.name}}" />
+            <div class="mk-name">
+              {{mk.name}}
+            </div>
+            <div class="contacts">
+              {% if mk.phone %}{{ mk.phone }}{% endif %}<br>
+              {% if mk.email %}<a href="mailto:{{mk.email}}"><i class="fa fa-envelope-o"></i></a>{% endif %}
+              {% if mk.twitter %}<a href="{{mk.twitter}}"><i class="fa fa-twitter"></i></a>{% endif %}
+              {% if mk.facebook %}<a href="{{mk.facebook}}"><i class="fa fa-facebook"></i></a>{% endif %}
+              {% if mk.web %}<a href="{{mk.web}}"><i class="fa fa-globe"></i></a>{% endif %}
+              <br />
+            </div>
+          </li>
+      {% endfor %}
+      </ul>
+      <div class="centered">
+        <a href="{{"/" | prepend: site.baseurl}}">
+          <i class="fa fa-arrow-right"></i>
+          חזרה לכל המפלגות
+        </a>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready( function() {
+    new Share(".share-button", {
+      url: "http://elections2015.no2bio.org",
+      title: "בבחירות 2015, {{ party.name }}  {{ statusMessage }}",
+      description: "סקר המפלגות של no2bio.org",
+      ui: {
+        button_text:" לשתף",
+        flyout: "top center"
+      },
+      networks: {
+        twitter: {
+          description: "בבחירות 2015, {{ party.name }}  {{ statusMessage  }} via @no2bio"
+        }
+      }
+    });
+  });
+</script>
