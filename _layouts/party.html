@@ -128,17 +128,10 @@ title: test
       {% for mk in mks %}
           {% assign mkStatus = mk.status | remove:' '%}
           {% if mkStatus == '' %} {% assign mkStatus = 'pending' %} {% endif %}
-          {% capture mkPhoto %}img/mks/{{mk.alias}}.jpg{% endcapture %}
-          {% capture mkPhotoPresent %}{% file_exists {{mkPhoto}} %}{% endcapture %}
-          {% case mkPhotoPresent %}
-          {% when "true" %}
-            {% capture mkImg%}/{{mkPhoto}}{% endcapture %}
-          {% else %}
-            {% assign mkImg="/img/mks/mk-default.png" %}
-          {% endcase %}
+          {% capture mkPhoto %}/img/mks/{{mk.alias}}.jpg{% endcapture %}
 
           <li class="li-{{mkStatus}}">
-            <img class="mk-image" src="{{ mkImg | prepend: site.baseurl }}" alt="{{ mk.name}}" />
+            <img class="mk-image" src="{{ mkPhoto | prepend: site.baseurl }}" alt="{{ mk.name}}" />
             <div class="mk-name">
               {{mk.name}}
             </div>
