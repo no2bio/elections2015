@@ -1,0 +1,12 @@
+#!/bin/bash
+MK_LIST=`cut -d, -f3 _data/mks.csv | tail -n+2`
+for mk in $MK_LIST; do
+  echo $mk
+  if [ -e "img/mks/$mk.jpg" ]
+  then
+    echo ..exists
+  else
+    echo ..adding
+    cp img/mks/mk-default.jpg img/mks/$mk.jpg
+  fi
+done

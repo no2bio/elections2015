@@ -1,0 +1,2 @@
+#!/bin/bash
+cut -d, -f5 _data/parties.csv | tail -n+2 | xargs -I @ cp _parties/_party_base.md-t _parties/@.md
