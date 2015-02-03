@@ -157,6 +157,11 @@ footer {
   margin: 0;
 }
 
+.title-party-logo {
+  padding: 0.5em;
+  text-align: left;
+}
+
 ul.party-list {
   margin: 0;
   text-align: center;
@@ -378,3 +383,20 @@ ul.legend li.legend-pending {
   border-color: $color-pending;
 }
 
+@media( max-width:992px ) {
+  .title-md {
+    text-align: center;
+  }
+}
+
+@media( max-width:768px ) {
+  .to-left {
+    text-align: center;
+  }
+  .page-title {
+    text-align: center;
+  }
+  .title-party-logo {
+    text-align: center;
+  }
+}
