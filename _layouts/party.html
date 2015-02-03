@@ -33,12 +33,7 @@ title: test
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4">
-      <div style="width: 100px; margin-top: 1.5em;">
-          <div class="share-button"></div>
-      </div>
-    </div>
-    <div class="col-md-6">
+    <div class="col-md-10">
       <div class="page-title">
         <h1>{{ party.name }}</h1>
         <div class="partyStatusMessage">
@@ -49,6 +44,7 @@ title: test
       {% capture twitterStatus %}{% include twitter-{{party.status}}.html username=party.twitter %}{% endcapture %}
       {% case party.status %} 
         {% when "yes" %}
+          <h4>אפשר לפרגן להם</h4>
           {% if party.facebook %}
             <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html"
                 target="_blank">
@@ -113,6 +109,11 @@ title: test
   </div>
   <div class="row">
     <div class="col-xs-12">
+      <div class="centered">
+        <div style="width: 100px; margin: auto;">
+          <div class="share-button"></div>
+        </div>
+      </div>
       <ul class="legend centered">
           <li class="legend-yes">יגנו על הנתונים שלך</li>
           <li class="legend-no">יפקירו את הנתונים שלך</li>
@@ -127,16 +128,38 @@ title: test
       {% for mk in mks %}
           {% assign mkStatus = mk.status | remove:' '%}
           {% if mkStatus == '' %} {% assign mkStatus = 'pending' %} {% endif %}
+          {% capture mkPhoto %}img/mks/{{mk.alias}}.jpg{% endcapture %}
+          {% capture mkPhotoPresent %}{% file_exists {{mkPhoto}} %}{% endcapture %}
+          {% case mkPhotoPresent %}
+          {% when "true" %}
+            {% capture mkImg%}/{{mkPhoto}}{% endcapture %}
+          {% else %}
+            {% assign mkImg="/img/mks/mk-default.png" %}
+          {% endcase %}
+
           <li class="li-{{mkStatus}}">
-            <img class="mk-image" src="{{ '/img/mks/mk-default.png' | prepend: site.baseurl }}" alt="{{ mk.name}}" />
+            <img class="mk-image" src="{{ mkImg | prepend: site.baseurl }}" alt="{{ mk.name}}" />
             <div class="mk-name">
               {{mk.name}}
             </div>
             <div class="contacts">
               {% if mk.phone %}{{ mk.phone }}{% endif %}<br>
-              {% if mk.email %}<a href="mailto:{{mk.email}}"><i class="fa fa-envelope-o"></i></a>{% endif %}
-              {% if mk.twitter %}<a href="{{mk.twitter}}"><i class="fa fa-twitter"></i></a>{% endif %}
-              {% if mk.facebook %}<a href="{{mk.facebook}}"><i class="fa fa-facebook"></i></a>{% endif %}
+              {% if mk.email %}
+                {% capture emailFileName %}email-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
+                {% capture emailBody %}{% include {{emailFileName}} name=mk.name %}{% endcapture %}
+                {% capture emailTitle %}{% include email-title.txt %}{% endcapture %}
+                <a href="mailto:{{mk.email}}?subject={{ emailTitle | uri_escape }}&body={{ emailBody | uri_escape }}"><i class="fa fa-envelope-o"></i></a>
+              {% endif %}
+              {% if mk.twitter %}
+                {% capture twitterStatus %}{% include twitter-{{mkStatus}}.html username=mk.twitter %}{% endcapture %}
+                <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Felections2015.no2bio.org&via=no2bio&text={{ twitterStatus | cgi_escape }}" target="_blank">
+                <i class="fa fa-twitter"></i></a>
+              {% endif %}
+              {% if mk.facebook %}
+                {% capture fbFileName %}fb-mk-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
+                {% capture fbStatus %}{% include {{fbFileName}} username=mk.name %}{% endcapture %}
+                <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html" target="_blank"><i class="fa fa-facebook"></i></a>
+              {% endif %}
               {% if mk.web %}<a href="{{mk.web}}"><i class="fa fa-globe"></i></a>{% endif %}
               <br />
             </div>
@@ -156,7 +179,7 @@ title: test
 <script type="text/javascript">
   $(document).ready( function() {
     new Share(".share-button", {
-      url: "http://elections2015.no2bio.org",
+      url: "http://elections2015.no2bio.org/parties/{{ party.alias }}.html",
       title: "בבחירות 2015, {{ party.name }}  {{ statusMessage }}",
       description: "סקר המפלגות של no2bio.org",
       ui: {
