@@ -301,10 +301,10 @@ ul.party-board {
   li {
     display: inline-block;
     position: relative;
-    margin: 0;
+    margin: 1em;
     padding:0;
     text-align: center;
-    width:150px;
+    width:160px;
     img {
       display: block;
     }
@@ -328,12 +328,6 @@ a:active .party-logo {
   box-shadow: 0 -2px 6px rgba(255,255,255,0.5);
 }
 
-.board-pending {
-  .party-logo {
-    border-color: $color-pending;
-  }
-}
-
 .board {
   position: realtive;
 }
@@ -346,7 +340,7 @@ a:active .party-logo {
   padding:0;
   top:0;
   left:0;
-  height: 150px;
+  height: 160px;
   right:0;
   background-color: rgba(0,0,0,0.5);
 }
@@ -378,8 +372,8 @@ ul.legend {
   li {
     display: inline-block;
     border-bottom: 15px solid black;
-    padding: 3px 7px;
-    width: 150px;
+    margin: 1em;
+    width: 160px;
   }
 }
 
