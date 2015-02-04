@@ -150,7 +150,7 @@ title: test
               {{mk.name}}
             </div>
             <div class="contacts">
-              {% if mk.phone %}{{ mk.phone }}{% endif %}<br>
+              &nbsp;<br>
               {% if mk.email %}
                 {% capture emailFileName %}email-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
                 {% capture emailBody %}{% include {{emailFileName}} name=mk.name %}{% endcapture %}
