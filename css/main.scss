@@ -77,6 +77,23 @@ body {
   direction: rtl;
   background-color: $background-color;
   font-family: $base-font-family;
+  padding-top: 2.5em;
+}
+
+.warning {
+  background-color: red;
+  color: yellow;
+  border-bottom: 2px yellow solid;
+  padding: 5px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 4px rgba(0,0,0,.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5em;
+  z-index: 1000;
 }
 
 h1 {
@@ -266,18 +283,6 @@ ul.mk-list .li-pending::after {
 }
 ul.mk-list .li-neutral::after {
   background-color: fade-out($color-pending, 0.5);
-}
-
-.warning {
-  background-color: red;
-  color: yellow;
-  border: 2px yellow solid;
-  border-radius: 5px;
-  padding: 5px;
-  font-weight: bold;
-  text-align: center;
-  height: 2.5em;
-  box-shadow: 0 4px 4px rgba(0,0,0,.5);
 }
 
 ul.party-board {
