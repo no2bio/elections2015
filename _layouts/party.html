@@ -24,7 +24,7 @@ title: test
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <br> 
       <a href="{{"/" | prepend: site.baseurl}}">
         <i class="fa fa-arrow-right"></i>
@@ -33,7 +33,13 @@ title: test
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-sm-4">
+        <div class="title-party-logo" >
+            <img alt="{{ party.name }} logo" 
+             src="{{ '/img/parties/' | append:party.alias | append:'/' | append:party.alias | append:'.png' | prepend:site.baseurl }}" />
+        </div>
+    </div>
+    <div class="col-sm-8">
       <div class="page-title">
         <h1>{{ party.name }}</h1>
         <div class="partyStatusMessage">
@@ -46,8 +52,11 @@ title: test
         {% when "yes" %}
           <h4>אפשר לפרגן להם</h4>
           {% if party.facebook %}
+            {% comment %}
             <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html"
                 target="_blank">
+            {% endcomment %}
+            <a href="{{ party.facebook }}" target="_blank">
               <i class="fa fa-facebook-square fa-3x"></i>
             </a>
           {% endif %}
@@ -65,8 +74,11 @@ title: test
         {% when "no" %}
           <h4>ספרו להם למה הם טועים</h4>
           {% if party.facebook %}
+            {% comment %}  
             <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html"
                 target="_blank">
+            {% endcomment %}
+            <a href="{{ party.facebook }}" target="_blank">
               <i class="fa fa-facebook-square fa-3x"></i>
             </a>
           {% endif %}
@@ -83,8 +95,11 @@ title: test
         {% else %}
           <h4>עיזרו לנו לשכנע אותם להחליט נכון</h4>
           {% if party.facebook %}
+            {% comment %}
             <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html"
                 target="_blank">
+            {% endcomment %}
+            <a href="{{ party.facebook }}" target="_blank">
               <i class="fa fa-facebook-square fa-3x"></i>
             </a>
           {% endif %}
@@ -100,20 +115,28 @@ title: test
           {% endif %}
       {% endcase %}
     </div>
-    <div class="col-md-2">
-        <div style="padding: 0.5em"  class="to-left">
-            <img alt="{{ party.name }} logo" 
-             src="{{ '/img/parties/' | append:party.alias | append:'/' | append:party.alias | append:'.png' | prepend:site.baseurl }}" />
-        </div>
-    </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <div class="centered">
         <div style="width: 100px; margin: auto;">
           <div class="share-button"></div>
         </div>
       </div>
+    </div>
+  </div>
+  {% capture wordCount %}{{ content | number_of_words }}{% endcapture %}
+  {% if wordCount != "0" %}
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>פעילות מפלגתית</h4>
+        {{ content }}
+      </div>
+    </div>
+  {% endif %}
+  <div class="row">
+    <div class="col-sm-12">
+
       <ul class="legend centered">
           <li class="legend-yes">יגנו על הנתונים שלך</li>
           <li class="legend-no">יפקירו את הנתונים שלך</li>
@@ -136,7 +159,6 @@ title: test
               {{mk.name}}
             </div>
             <div class="contacts">
-              {% if mk.phone %}{{ mk.phone }}{% endif %}<br>
               {% if mk.email %}
                 {% capture emailFileName %}email-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
                 {% capture emailBody %}{% include {{emailFileName}} name=mk.name %}{% endcapture %}
@@ -151,7 +173,11 @@ title: test
               {% if mk.facebook %}
                 {% capture fbFileName %}fb-mk-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
                 {% capture fbStatus %}{% include {{fbFileName}} username=mk.name %}{% endcapture %}
-                <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html" target="_blank"><i class="fa fa-facebook"></i></a>
+                {% comment %}<a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html" target="_blank">
+                {% endcomment %}
+                <a href="{{ mk.facebook }}" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
               {% endif %}
               {% if mk.web %}<a href="{{mk.web}}"><i class="fa fa-globe"></i></a>{% endif %}
               <br />

@@ -77,6 +77,23 @@ body {
   direction: rtl;
   background-color: $background-color;
   font-family: $base-font-family;
+  padding-top: 2.5em;
+}
+
+.warning {
+  background-color: red;
+  color: yellow;
+  border-bottom: 2px yellow solid;
+  padding: 5px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 4px rgba(0,0,0,.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5em;
+  z-index: 1000;
 }
 
 h1 {
@@ -157,6 +174,11 @@ footer {
   margin: 0;
 }
 
+.title-party-logo {
+  padding: 0.5em;
+  text-align: left;
+}
+
 ul.party-list {
   margin: 0;
   text-align: center;
@@ -204,7 +226,7 @@ ul.mk-list {
     position: relative;
     display: inline-block;
     width: 150px;
-    height: 220px;
+    height: 195px;
     margin: 1em;
 
     .mk-name{
@@ -261,26 +283,6 @@ ul.mk-list .li-pending::after {
 }
 ul.mk-list .li-neutral::after {
   background-color: fade-out($color-pending, 0.5);
-}
-
-.warning {
-  background-color: red;
-  color: yellow;
-  border: 2px yellow solid;
-  border-radius: 5px;
-  padding: 5px;
-  font-weight: bold;
-  text-align: center;
-  width: 300px;
-  position: fixed;
-  left: -70px;
-  top: 70px;
-  height: 2.5em;
-  -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
-      -ms-transform: rotate(-45deg); /* IE 9 */
-          transform: rotate(-45deg);
-  z-index: 2000;
-  box-shadow: 0 4px 4px rgba(0,0,0,.5);
 }
 
 ul.party-board {
@@ -378,3 +380,20 @@ ul.legend li.legend-pending {
   border-color: $color-pending;
 }
 
+@media( max-width:992px ) {
+  .title-md {
+    text-align: center;
+  }
+}
+
+@media( max-width:768px ) {
+  .to-left {
+    text-align: center;
+  }
+  .page-title {
+    text-align: center;
+  }
+  .title-party-logo {
+    text-align: center;
+  }
+}
