@@ -173,7 +173,11 @@ title: test
               {% if mk.facebook %}
                 {% capture fbFileName %}fb-mk-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
                 {% capture fbStatus %}{% include {{fbFileName}} username=mk.name %}{% endcapture %}
-                <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html" target="_blank"><i class="fa fa-facebook"></i></a>
+                {% comment %}<a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html" target="_blank">
+                {% endcomment %}
+                <a href="{{ mk.facebook }}" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
               {% endif %}
               {% if mk.web %}<a href="{{mk.web}}"><i class="fa fa-globe"></i></a>{% endif %}
               <br />
