@@ -218,6 +218,16 @@ ul.party-list li a {
   font-variant: oblique;
 }
 
+.partyStatusMessage-yes {
+  border-bottom: 5px solid $color-yes;
+}
+.partyStatusMessage-no {
+  border-bottom: 5px solid $color-no;
+}
+.partyStatusMessage-pending {
+  border-bottom: 5px solid $color-pending;
+}
+
 ul.mk-list {
   padding: 0;
   list-style: outside none none;

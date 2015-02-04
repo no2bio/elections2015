@@ -42,9 +42,9 @@ title: test
     <div class="col-sm-8">
       <div class="page-title">
         <h1>{{ party.name }}</h1>
-        <div class="partyStatusMessage">
+        <span class="partyStatusMessage partyStatusMessage-{{ party.status }}">
           {{ statusMessage }}
-        </div>
+        </span>
       </div>
       {% capture fbStatus %}{% include fb-{{party.status}}.html username=party.name %}{% endcapture %}
       {% capture twitterStatus %}{% include twitter-{{party.status}}.html username=party.twitter %}{% endcapture %}
@@ -185,6 +185,9 @@ title: test
           </li>
       {% endfor %}
       </ul>
+      {% if party.remarks %}
+      <small>{{ party.remarks }}</small>
+      {% endif %}
       <div class="centered">
         <a href="{{"/" | prepend: site.baseurl}}">
           <i class="fa fa-arrow-right"></i>
