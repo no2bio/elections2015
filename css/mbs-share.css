@@ -1,0 +1,21 @@
+ul.mbs-share {
+  list-style: outside none none;
+  text-align: center;
+}
+ul.mbs-share li {
+  display: inline-block
+}
+
+ul.mbs-share li a,
+ul.mbs-share li:visited a {
+  text-shadow: 0 2px 2px rgba(0,0,0,.3);
+}
+
+ul.mbs-share li:hover a {
+  text-shadow: 0 2px 2px rgba(0,0,0,.3), 0 2px 2px white;
+  color: black;
+}
+ul.mbs-share li:active a {
+  text-shadow: 0 0 2px black;
+  color: white;
+}
