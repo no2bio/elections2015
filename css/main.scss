@@ -390,6 +390,10 @@ ul.legend li.legend-pending {
   border-color: $color-pending;
 }
 
+ul.legend li.legend-party {
+  width: 150px;
+}
+
 @media( max-width:992px ) {
   .title-md {
     text-align: center;
