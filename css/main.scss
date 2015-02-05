@@ -241,6 +241,7 @@ ul.mk-list {
     text-align: center;
     .mk-image {
       margin-top: 5px;
+      max-width: 150px; /* fix megalomanic scans ;) */
     }
     .mk-name{
       text-align: center;
