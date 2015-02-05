@@ -7,7 +7,8 @@
       <i class="fa fa-google-plus-square fa-2x"></i></a>
   </li>
   <li>
-    <a href="https://twitter.com/intent/tweet?url={{ include.link | cgi_escape }}&via=no2bio&text={{ include.title | cgi_escape }}" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+    {% capture twitterText %}{{include.title}} {{ include.hashtag }}{% endcapture %}
+    <a href="https://twitter.com/intent/tweet?url={{ include.link | cgi_escape }}&via=no2bio&text={{ twitterText | cgi_escape }}" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
   </li>
   <li>
     <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ include.title | cgi_escape }}&link={{ include.link | cgi_escape }}&redirect_uri={{ include.link }}" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
