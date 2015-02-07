@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+{% assign mkAlias = page.url | split:'/' | last | split :'.' | first %}
+{% for m in site.data.mks %}
+  {% if m.alias == mkAlias %}
+    {% assign mk=m %}
+  {% endif %}
+{% endfor %}
+
+{% assign mkStatus = mk.status | remove:' '%}
+{% if mkStatus == '' %} {% assign mkStatus = 'pending' %} {% endif %}
+
+{% assign mkGender = mk.gender | remove:' '%}
+{% if mkGender == '' %} {% assign mkGender = 'm' %} {% endif %}
+
+{% capture emailFileName %}email-{{mkStatus}}-{{mkGender}}.txt{% endcapture %}
+{% capture emailBody %}{% include {{emailFileName}} name=mk.name %}{% endcapture %}
+{% capture emailTitle %}{% include email-title.txt %}{% endcapture %}
+<div class="row">
+  <div class="col-sm-12 centered">
+    {% if mk.gender == 'f' %}המייל של חברת הכנסת{% endif %}
+    {% if mk.gender == 'm' %}המייל של חבר הכנסת{% endif %}
+    הכנסת {{ mk.name }} הוא <a href="mailto:{{mk.email}}">{{ mk.email }}</a>. להלן נוסח מוצע למכתב - אתם מוזמנים לערוך אותו כרצונכם, ולשלוח.
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="page">
+      <h3>תמיכה בביטול המאגר הביומטרי</h3>
+      {{emailBody | markdownify}}
+    </div>
+  </div>
+</div>

@@ -157,8 +157,10 @@ title: test
                 {% capture emailFileName %}email-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
                 {% capture emailBody %}{% include {{emailFileName}} name=mk.name %}{% endcapture %}
                 {% capture emailTitle %}{% include email-title.txt %}{% endcapture %}
-                <a href="mailto:{{mk.email}}?subject={{ emailTitle | uri_escape }}&body={{ emailBody | uri_escape }}"><i class="fa fa-envelope-o"></i></a>
-                <!-- <a href="mailto:{{mk.email}}?subject==?utf-8?Q?hello?=&body={{ emailBody | uri_escape }}"><i class="fa fa-envelope-o"></i></a> -->
+                <a href="{{ site.baseurl }}/email/{{mk.alias}}.html" target="_blank">
+                <!-- <a href="mailto:{{mk.email}}?subject==?utf-8?Q?hello?=&body={{ emailBody | uri_escape }}"> -->
+                  <i class="fa fa-envelope-o"></i>
+                </a>
               {% endif %}
               {% if mk.twitter %}
                 {% capture twitterInclude%}twitter-mk-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
