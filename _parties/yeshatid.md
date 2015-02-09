@@ -14,7 +14,7 @@ title: האם תבטל מפלגת "יש עתיד" את המאגר הביומטר
       <img src="../docs/ylapid.png" alt="צילום מסך">
     </div>
 -->
-    <div class="item">
+    <div class="item active">
       <img src="../docs/levimiki.png" alt="צילום מסך">
     </div>
   </div>
