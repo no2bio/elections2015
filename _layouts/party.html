@@ -48,7 +48,11 @@ title: test
       </div>
       {% capture fbStatus %}{% include fb-party-{{party.status}}.txt username=party.name %}{% endcapture %}
       {% capture picUrl %}http://elections2015.no2bio.org/img/logo-fb-share.png{% endcapture %}
-      {% capture twitterStatus %}{% include twitter-party-{{party.status}}.txt username=party.twitter %}{% endcapture %}
+      {% if party.meme %}
+        {% capture twitterStatus %}{% include twitter-meme-party.txt username=party.twitter meme=party.meme %}{% endcapture %}
+      {% else %}
+        {% capture twitterStatus %}{% include twitter-party-{{party.status}}.txt username=party.twitter %}{% endcapture %}
+      {% endif %}
       {% case party.status %} 
         {% when "yes" %}
           <h4>אפשר לפרגן להם</h4>
@@ -59,7 +63,7 @@ title: test
             </a>
           {% endif %}
           {% if party.twitter %}
-            <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Felections2015.no2bio.org&via=no2bio&text={{ twitterStatus | cgi_escape }}" target="_blank">
+            <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&via=no2bio&text={{ twitterStatus | strip_newlines | cgi_escape }}" target="_blank">
               <i class="fa fa-twitter fa-3x"></i>
             </a>
           {% endif %}
@@ -78,7 +82,7 @@ title: test
             </a>
           {% endif %}
           {% if party.twitter %}
-            <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Felections2015.no2bio.org&via=no2bio&text={{ twitterStatus | cgi_escape }}" target="_blank">
+            <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&via=no2bio&text={{ twitterStatus | strip_newlines | cgi_escape }}" target="_blank">
               <i class="fa fa-twitter fa-3x"></i>
             </a>
           {% endif %}
@@ -96,7 +100,7 @@ title: test
             </a>
           {% endif %}
           {% if party.twitter %}
-            <a href="https://twitter.com/intent/tweet?url=http://{{site.baseurl |cgi_encode}}parties/{{party.alias}}.html&via=no2bio&text={{ twitterStatus | cgi_escape }}" target="_blank">
+            <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&via=no2bio&text={{ twitterStatus | strip_newlines | cgi_escape }}" target="_blank">
               <i class="fa fa-twitter fa-3x"></i>
             </a>
           {% endif %}
@@ -163,9 +167,14 @@ title: test
                 </a>
               {% endif %}
               {% if mk.twitter %}
-                {% capture twitterInclude%}twitter-mk-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
-                {% capture twitterStatus %}{% include {{twitterInclude}} username=mk.twitter %}{% endcapture %}
-                <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Felections2015.no2bio.org&via=no2bio&text={{ twitterStatus | cgi_escape }}" target="_blank">
+                {% if mk.meme %}
+                  {% capture twitterInclude%}twitter-meme-{{mk.gender}}.txt{% endcapture %}
+                  {% capture twitterStatus %}{% include {{twitterInclude}} username=mk.twitter meme=mk.meme %}{% endcapture %}
+                {% else %}
+                  {% capture twitterInclude%}twitter-mk-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
+                  {% capture twitterStatus %}{% include {{twitterInclude}} username=mk.twitter %}{% endcapture %}
+                {% endif %}
+                <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}&via=no2bio&text={{ twitterStatus | strip_newlines | cgi_escape }}" target="_blank">
                 <i class="fa fa-twitter"></i></a>
               {% endif %}
               {% if mk.facebook %}
