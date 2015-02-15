@@ -1,1 +1,1 @@
-.@{{ include.username }} יבטל את המאגר הביומרי? #no2bio {{ include.meme }}
+.@{{ include.username }} יבטל את המאגר הביומטרי? #no2bio {{ include.meme }}
