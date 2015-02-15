@@ -36,8 +36,8 @@ $base-line-height: 1.5;
 $spacing-unit:     30px;
 
 $text-color:              #111;
-$background-color:        #fff;
 $background-color-yellow: #fee00a;
+$background-color:        lighten($background-color-yellow,23%);
 $brand-color:             #2a7ae2;
 
 $grey-color:       #828282;
@@ -106,9 +106,9 @@ h3 {
 }
 
 a {
-  color: darken( $background-color, 25);
+  color: darken( $background-color-yellow, 25);
   &:hover {
-    color: darken( $background-color, 15 );
+    color: darken( $background-color-yellow, 15 );
   }
   &:active {
     color: white; 
@@ -116,7 +116,7 @@ a {
 
   }
   &:visited {
-    color: darken( $background-color, 30);
+    color: darken( $background-color-yellow, 30);
   }
 }
 
@@ -126,6 +126,7 @@ a {
 
 .explanation {
   font-size: 1.4em;
+  line-height: 1.5em;
 }
 
 .page-title {
@@ -158,12 +159,12 @@ $color-neutral: #AAF;
 
 .yes {
   @extend .yesno;
-  background-color: lighten($color-yes, 30%);
+  background-color: lighten($color-yes, 10%);
 }
 
 .no {
   @extend .yesno;
-  background-color: lighten($color-no, 40%);
+  background-color: lighten($color-no, 10%);
 }
 
 .pending {
