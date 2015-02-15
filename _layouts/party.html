@@ -46,7 +46,7 @@ title: test
           {{ statusMessage }}
         </span>
       </div>
-      {% capture fbStatus %}{% include fb-party-{{party.status}}.txt username=party.name %}{% endcapture %}
+      {% capture fbStatus %}{% include fb-party-{{party.status}}.txt username=party.name %}{% if party.fbmention %} {{ party.fbmention }}{% endif %}{% endcapture %}
       {% capture picUrl %}http://elections2015.no2bio.org/img/logo-fb-share.png{% endcapture %}
       {% if party.meme %}
         {% capture twitterStatus %}{% include twitter-meme-party.txt username=party.twitter meme=party.meme %}{% endcapture %}
@@ -179,7 +179,7 @@ title: test
               {% endif %}
               {% if mk.facebook %}
                 {% capture fbFileName %}fb-mk-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
-                {% capture fbStatus %}{% include {{fbFileName}} username=mk.name %}{% endcapture %}
+                {% capture fbStatus %}{% include {{fbFileName}} username=mk.name %}{% if mk.fbmention %} {{ mk.fbmention }}{% endif %}{% if party.fbmention %} {{ party.fbmention }}{% endif %}{% endcapture %}
                 <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html&picture={{picUrl | cgi_escape}}" target="_blank">
                   <i class="fa fa-facebook"></i>
                 </a>
