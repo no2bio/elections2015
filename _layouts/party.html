@@ -57,8 +57,9 @@ title: test
         {% when "yes" %}
           <h4>אפשר לפרגן להם</h4>
           {% if party.facebook %}
-            <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | strip_newlines | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html&picture={{picUrl | cgi_escape}}"
-                target="_blank">
+            <!-- a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | strip_newlines | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html&picture={{picUrl | cgi_escape}}"
+                target="_blank" -->
+            <a href="{{ party.facebook }}" target="_blank">
               <i class="fa fa-facebook-square fa-3x"></i>
             </a>
           {% endif %}
@@ -76,8 +77,9 @@ title: test
         {% when "no" %}
           <h4>ספרו להם למה הם טועים</h4>
           {% if party.facebook %}
-            <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | strip_newlines | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html&picture={{picUrl | cgi_escape}}"
-                target="_blank">
+            <!-- a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | strip_newlines | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html&picture={{picUrl | cgi_escape}}"
+                target="_blank" -->
+            <a href="{{ party.facebook }}" target="_blank">
               <i class="fa fa-facebook-square fa-3x"></i>
             </a>
           {% endif %}
@@ -94,8 +96,9 @@ title: test
         {% else %}
           <h4>עיזרו לנו לשכנע אותם להחליט נכון</h4>
           {% if party.facebook %}
-            <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | strip_newlines | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html&picture={{picUrl | cgi_escape}}"
-                target="_blank">
+            <!-- a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | strip_newlines | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html&picture={{picUrl | cgi_escape}}"
+                target="_blank" -->
+              <a href="{{ party.facebook }}" target="_blank">
               <i class="fa fa-facebook-square fa-3x"></i>
             </a>
           {% endif %}
@@ -180,7 +183,8 @@ title: test
               {% if mk.facebook %}
                 {% capture fbFileName %}fb-mk-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
                 {% capture fbStatus %}{% include {{fbFileName}} username=mk.name %}{% if mk.fbmention %} {{ mk.fbmention }}{% endif %}{% if party.fbmention %} {{ party.fbmention }}{% endif %}{% endcapture %}
-                <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | strip_newlines | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html&picture={{picUrl | cgi_escape}}" target="_blank">
+                <!-- a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | strip_newlines | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html&picture={{picUrl | cgi_escape}}" target="_blank" -->
+                <a href="{{mk.facebook}}" target="_blank">
                   <i class="fa fa-facebook"></i>
                 </a>
               {% endif %}
