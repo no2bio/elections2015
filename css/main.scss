@@ -35,9 +35,10 @@ $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-$text-color:       #111;
-$background-color: #fee00a;
-$brand-color:      #2a7ae2;
+$text-color:              #111;
+$background-color-yellow: #fee00a;
+$background-color:        lighten($background-color-yellow,42%);
+$brand-color:             #2a7ae2;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
@@ -49,7 +50,8 @@ $content-width:    800px;
 $on-palm:          600px;
 $on-laptop:        800px;
 
-
+$page-title-radius: 0.1em;
+$yesno-radius: 0.3em;
 
 // Using media queries with like this:
 // @include media-query($on-palm) {
@@ -104,20 +106,17 @@ h3 {
 }
 
 a {
-  color: darken( $background-color, 25);
+  color: darken( $background-color-yellow, 25);
   &:hover {
-    text-decoration: none;
-    color: darken( $background-color, 15 );
+    color: darken( $background-color-yellow, 15 );
   }
   &:active {
-    text-decoration: none;
-    color: white; 
+    color: $background-color-yellow; 
     text-shadow: 0px 0px 1px black;
 
   }
   &:visited {
-    color: darken( $background-color, 30);
-    text-decoration: none;
+    color: darken( $background-color-yellow, 30);
   }
 }
 
@@ -127,11 +126,18 @@ a {
 
 .explanation {
   font-size: 1.4em;
+  line-height: 1.5em;
 }
 
 .page-title {
   h1 {
     font-size: 3.5em;
+    padding: 0.1em;
+    padding-right: 0.2em;
+    background-color: $background-color-yellow;
+    -webkit-border-radius: $page-title-radius;
+    -moz-border-radius: $page-title-radius;
+    border-radius: $page-title-radius;
   }
 }
 
@@ -140,12 +146,25 @@ $color-no:  #f62c10;
 $color-pending: #000;
 $color-neutral: #AAF;
 
+.yesno-padding {
+  display: inline-block;
+  width: 0.2em;
+}
+
+.yesno {
+  -webkit-border-radius: $yesno-radius;
+  -moz-border-radius: $yesno-radius;
+  border-radius: $yesno-radius;
+}
+
 .yes {
-  background-color: $color-yes;
+  @extend .yesno;
+  background-color: lighten($color-yes, 10%);
 }
 
 .no {
-  background-color: $color-no;
+  @extend .yesno;
+  background-color: lighten($color-no, 10%);
 }
 
 .pending {
@@ -254,7 +273,7 @@ ul.mk-list {
       color: black;
     }
     a:hover {
-      text-shadow: 0 0 8px white;
+      text-shadow: 0 0 8px $background-color-yellow;
     }
   }
 }
@@ -319,7 +338,7 @@ ul.party-board {
       display: block;
     }
     a:hover {
-      background-color: white;
+      background-color: $background-color-yellow;
     }
   }
 }
@@ -417,7 +436,7 @@ ul.legend li.legend-party {
 }
 
 .page {
-  background-color: white;
+  background-color: $background-color-yellow;
   padding: 1em;
   box-shadow: 0 8px 16px rgba(0,0,0,0.5);
   width: 80%;
