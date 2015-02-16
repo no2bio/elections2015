@@ -10,3 +10,4 @@ title: האם תבטל מפלגת "המחנה הציוני" את המאגר הב
 * ציפי ליבני נעדרה מאותה הצבעה, אך הצביעה בעד המאגר [בהזדמנות אחרת](https://oknesset.org/vote/107/).
 * <i class="fa fa-envelope"></i> [תשובת ח"כ איתן כבל](../docs/ecabel.png)
 * <i class="fa fa-envelope"></i> [תשובת ח"כ שלי יחימוביץ'](../docs/syechimivich.png)
+* <i class="fa fa-globe"></i> [ח״כ אראל מרגלית התבטא נגד המאגר הביומטרי אצל טל שניידר](https://www.facebook.com/tal.schneider/posts/10153543530924251)
