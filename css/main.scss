@@ -111,7 +111,7 @@ a {
     color: darken( $background-color-yellow, 15 );
   }
   &:active {
-    color: white; 
+    color: $background-color-yellow; 
     text-shadow: 0px 0px 1px black;
 
   }
@@ -273,7 +273,7 @@ ul.mk-list {
       color: black;
     }
     a:hover {
-      text-shadow: 0 0 8px white;
+      text-shadow: 0 0 8px $background-color-yellow;
     }
   }
 }
@@ -338,7 +338,7 @@ ul.party-board {
       display: block;
     }
     a:hover {
-      background-color: white;
+      background-color: $background-color-yellow;
     }
   }
 }
@@ -436,7 +436,7 @@ ul.legend li.legend-party {
 }
 
 .page {
-  background-color: white;
+  background-color: $background-color-yellow;
   padding: 1em;
   box-shadow: 0 8px 16px rgba(0,0,0,0.5);
   width: 80%;

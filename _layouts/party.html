@@ -163,8 +163,7 @@ title: test
                 {% capture emailTitle %}{% include email-title.txt %}{% endcapture %}
                 <a href="{{ site.baseurl }}/email/{{mk.alias}}.html" target="_blank">
                 <!-- <a href="mailto:{{mk.email}}?subject==?utf-8?Q?hello?=&body={{ emailBody | uri_escape }}"> -->
-                  <i class="fa fa-envelope-o"></i>
-                </a>
+                  <i class="fa fa-envelope-o"></i></a>
               {% endif %}
               {% if mk.twitter %}
                 {% if mk.meme %}
@@ -181,8 +180,7 @@ title: test
                 {% capture fbFileName %}fb-mk-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
                 {% capture fbStatus %}{% include {{fbFileName}} username=mk.name %}{% if mk.fbmention %} {{ mk.fbmention }}{% endif %}{% if party.fbmention %} {{ party.fbmention }}{% endif %}{% endcapture %}
                 <a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html&picture={{picUrl | cgi_escape}}" target="_blank">
-                  <i class="fa fa-facebook"></i>
-                </a>
+                  <i class="fa fa-facebook"></i></a>
               {% endif %}
               {% if mk.web %}<a href="{{mk.web}}"><i class="fa fa-globe"></i></a>{% endif %}
               <br />
