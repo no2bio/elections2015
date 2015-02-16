@@ -43,6 +43,7 @@ title: test
       <div class="page-title">
         <h1>{{ party.name }}</h1>
         <span class="partyStatusMessage partyStatusMessage-{{ party.status }}">
+          {% include icon-{{party.status}}.html %}
           {{ statusMessage }}
         </span>
       </div>
@@ -136,9 +137,15 @@ title: test
     <div class="col-sm-12">
 
       <ul class="legend centered">
-          <li class="legend-yes legend-party">יגנו על הנתונים שלך</li>
-          <li class="legend-no legend-party">יפקירו את הנתונים שלך</li>
-          <li class="legend-pending legend-party">לא מבטיחים כלום</li>
+        <li class="legend-yes">
+          {% include icon-yes.html %}
+          יגנו על הנתונים שלך</li>
+        <li class="legend-no">
+          {% include icon-no.html %}
+          יפקירו את הנתונים שלך</li>
+        <li class="legend-pending">
+          {% include icon-pending.html %}
+          לא מבטיחים כלום</li>
       </ul>
     </div>
   </div>
@@ -154,6 +161,7 @@ title: test
           <li class="li-{{mkStatus}}">
             <img class="mk-image" src="{{ mkPhoto | prepend: site.baseurl }}" alt="{{ mk.name}}" />
             <div class="mk-name">
+              {% include icon-{{mk.status}}.html %}
               {{mk.name}}
             </div>
             <div class="contacts">
