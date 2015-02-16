@@ -36,9 +36,15 @@ title: מי יגן על הנתונים שלך בכנסת ה-20?
             </div>
             <div class="centered">
                 <ul class="legend">
-                    <li class="legend-yes">יגנו על הנתונים שלך</li>
-                    <li class="legend-no">יפקירו את הנתונים שלך</li>
-                    <li class="legend-pending">לא מבטיחים כלום</li>
+                    <li class="legend-yes">
+                      {% include icon-yes.html %}
+                      יגנו על הנתונים שלך</li>
+                    <li class="legend-no">
+                      {% include icon-no.html %}
+                      יפקירו את הנתונים שלך</li>
+                    <li class="legend-pending">
+                      {% include icon-pending.html %}
+                      לא מבטיחים כלום</li>
                 </ul>
             </div>
         </div>
@@ -50,6 +56,7 @@ title: מי יגן על הנתונים שלך בכנסת ה-20?
                     <li class="board board-{{party.status}}">
                         <a href="parties/{{party.alias}}.html">
                             <img class="party-logo" width="160" height="160" src="{{ '/img/parties/' | append:party.alias | append:'/' | append: party.alias | append:'-bw.png' | prepend:site.baseurl }}">
+                            {% include icon-{{party.status}}.html %}
                             {{party.name}}
                         </a>
                     </li>
