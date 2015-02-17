@@ -127,15 +127,6 @@ title: test
       </div>
     </div>
   </div>
-  {% capture wordCount %}{{ content | number_of_words }}{% endcapture %}
-  {% if wordCount != "0" %}
-    <div class="row">
-      <div class="col-sm-12">
-        {% if we_find_a_better_title_than_this %}<h4>פעילות מפלגתית</h4>{% endif %}
-        {{ content }}
-      </div>
-    </div>
-  {% endif %}
   <div class="row">
     <div class="col-sm-12">
 
@@ -190,7 +181,6 @@ title: test
               {% if mk.facebook %}
                 {% capture fbFileName %}fb-mk-{{mkStatus}}-{{mk.gender}}.txt{% endcapture %}
                 {% capture fbStatus %}{% include {{fbFileName}} username=mk.name %}{% if mk.fbmention %} {{ mk.fbmention }}{% endif %}{% if party.fbmention %} {{ party.fbmention }}{% endif %}{% endcapture %}
-                <!-- a href="https://www.facebook.com/dialog/feed?app_id={{ site.fbId }}&display=popup&caption={{ fbStatus | strip_newlines | cgi_escape }}&link=http%3A%2F%2Felections2015.no2bio.org%2Fparties%2F{{party.alias}}.html&redirect_uri=http://elections2015.no2bio.org/parties/{{ party.alias }}.html&picture={{picUrl | cgi_escape}}" target="_blank" -->
                 <a href="{{mk.facebook}}" target="_blank">
                   <i class="fa fa-facebook"></i></a>
               {% endif %}
@@ -203,12 +193,25 @@ title: test
       {% if party.remarks %}
       <small>{{ party.remarks }}</small>
       {% endif %}
-      <div class="centered">
-        <a href="{{"/" | prepend: site.baseurl}}">
-          <i class="fa fa-arrow-right"></i>
-          חזרה לכל המפלגות
-        </a>
-      </div>      
+    </div>
+    {% capture wordCount %}{{ content | number_of_words }}{% endcapture %}
+    {% if wordCount != "0" %}
+      <div class="row">
+        <div class="col-sm-12">
+          <h4>סימוכין</h4>
+          {{ content }}
+        </div>
+      </div>
+    {% endif %}
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="centered">
+          <a href="{{"/" | prepend: site.baseurl}}">
+            <i class="fa fa-arrow-right"></i>
+            חזרה לכל המפלגות
+          </a>
+        </div>      
+      </div>
     </div>
   </div>
 </div>
