@@ -10,6 +10,7 @@
 הכנסת ה-20 תחליט על עתידו של המאגר הביומטרי.
 <span class="yes"><span class="yesno-padding"></span>מי מבטיח להגן על הנתונים שלנו<span class="yesno-padding"></span></span> ולבטל את המאגר?
 <span class="no"><span class="yesno-padding"></span>מי מפקיר את הפרטיות שלנו<span class="yesno-padding"></span></span>?
-אתר זה מאפשר לכם לפנות אל נציגיכם בכנסת הבאה ולדרוש מהם לפעול לביטול המאגר.</p>
-
-<a href="http://no2bio.org/the-problem/" target="_blank">למידע נוסף</a>
+אתר זה מאפשר לכם לפנות אל נציגיכם בכנסת הבאה ולדרוש מהם לפעול לביטול המאגר.
+<a class="btn btn-default pull-left" href="http://no2bio.org/the-problem/" target="_blank">
+  למידע נוסף <i class="fa fa-angle-double-left"></i></a>
+</p>
