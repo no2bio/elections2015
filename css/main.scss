@@ -214,7 +214,6 @@ ul.party-list li {
   border-radius: 1em;
   padding: 0.5em;
   margin: 1em;
-
 }
 
 ul.party-list li .tag {
@@ -346,6 +345,7 @@ ul.party-board {
 
 .party-logo {
   object-fit: contain;
+  box-shadow: 0 2px 4px rgba(0,0,0,.5);
 }
 
 a:active .party-logo {
