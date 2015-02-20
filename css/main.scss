@@ -318,6 +318,21 @@ ul.mk-list .li-neutral::after {
   background-color: fade-out($color-pending, 0.5);
 }
 
+.citations {
+  ul {
+    list-style: none;
+    padding-right: 20px;
+    li {
+      .fa {
+        display: inline-block;
+        text-align: center;
+        width: 2em;
+      }
+    }
+  }
+
+}
+
 ul.party-board {
   list-style: none;
   padding: 0;
