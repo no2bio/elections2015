@@ -3,7 +3,7 @@ layout: party
 title: האם תבטל מפלגת "המחנה הציוני" את המאגר הביומטרי?
 ---
 
-* <i class="fa fa-newspaper-o"></i> יצחק הרצוג: ״[נתנגד להקמת מאגר ביומטרי בישראל](http://www.haaretz.co.il/magazine/.premium-1.2568998)״
+* <i class="fa fa-newspaper-o"></i> יצחק הרצוג: ״[נתנגד להקמת מאגר ביומטרי בישראל](https://archive.today/8p7dP#selection-2935.1-2935.206)״
 * <i class="fa fa-mobile"></i> [תשובת מנואל טרכטנברג](../docs/trajtenberg.png), כולל עמדת המפלגה
 * <i class="fa fa-globe"></i> נחמן שי, שלי יחימוביץ׳ ואיתן כבל [השתתפו בהצעת חוק לביטול המאגר](http://www.mako.co.il/nexter-archive/Article-5a73491c10e6631006.htm).
 * <i class="fa fa-globe"></i> שלי יחימוביץ׳ ואיתן כבל יצאו נגד המאגר [כאן](http://www.nrg.co.il/online/1/ART2/324/377.html) ו[כאן](http://www.ynet.co.il/articles/0,7340,L-4402374,00.html)
