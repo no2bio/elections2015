@@ -4,5 +4,6 @@ title: האם תבטל מפלגת "הבית היהודי" את המאגר הבי
 ---
 
 * <i class="fa fa-bank"></i> אורי אריאל [הצביע](https://oknesset.org/vote/652/) נגד המאגר הביומטרי ב-2009, אורי אורבך ז״ל הצביע בעד.
-* <i class="fa fa-envelope"></i> [תשובת בצלאל סמוטריץ'](../docs/smotrich.png)
-* <i class="fa fa-phone"></i> איילת שקד &mdash; לא מעוניית להתייחס, רק לאחר הבחירות
+* <i class="fa fa-envelope"></i> [תשובת בצלאל סמוטריץ'](../docs/smotrich.png).
+* <i class="fa fa-phone"></i> איילת שקד &mdash; לא מעוניית להתייחס, רק לאחר הבחירות.
+* <i class="fa fa-globe"></i> אביחי רונצקי [מתנגד לחייב אזרחים להצטרף למאגר ביומטרי](http://www.haaretz.co.il/news/elections/mitnadned/.premium-1.2586293).
