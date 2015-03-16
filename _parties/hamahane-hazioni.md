@@ -14,3 +14,4 @@ title: האם תבטל מפלגת "המחנה הציוני" את המאגר הב
 * <i class="fa fa-envelope"></i> [תשובת ח"כ שלי יחימוביץ'](../docs/syechimivich.png)
 * <i class="fa fa-mobile"></i> [תשובת ח"כ סתיו שפיר](../docs/shaffir.png)
 * <i class="fa fa-globe"></i> [ח״כ אראל מרגלית התבטא נגד המאגר הביומטרי אצל טל שניידר](https://www.facebook.com/tal.schneider/posts/10153543530924251)
+* <i class="fa fa-microphone"></i> [ציפי לבני תמכה במאגר בעבר, וכעת ממתינה לתוצאות הניסוי](../docs/Livni.m4a)
